@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import { UserAuth } from "./Context/AuthContext";
 
 
-
 const AddAddress = () => {
     const navigate = useNavigate()
     const { user } = UserAuth()
@@ -19,12 +18,11 @@ const AddAddress = () => {
     const [othername, setOthername] = useState("")
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
-
     const [surname, setSurname] = useState("")
     const [fullName, setFullName] = useState("")
     const [dateOfBirth, setDateOfBirth] = useState("")
     const [sex, setSex] = useState("")
-    const [stateOfOrigin, setStateOfOrigin] = useState("")
+    const [stateOfOrigin, setStateOfOrigin] = useState("State of Origin")
     const [localGovernmentArea, setLocalGovernmentArea] = useState("")
     const [homeTown, setHomeTown] = useState("")
     const [occupation, setOccupation] = useState("")
@@ -34,7 +32,7 @@ const AddAddress = () => {
     const [buildingType, setBuildingType] = useState("")
     const [propertyType, setPropertyType] = useState("")
     const [street, setStreet] = useState("")
-    const [state, setState] = useState("")
+    const [state, setState] = useState("Abia")
     const [city, setCity] = useState("")
     const [zipCode, setZipCode] = useState("")
     const [longitude, setLongitude] = useState("")
@@ -46,10 +44,9 @@ const AddAddress = () => {
     const [secondWitnessFullName, setSecondWitnessFullName] = useState("")
     const [secondWitnessRelationshipType, setSecondWitnessRelationshipType] = useState("")
     const [secondWitnessPhoneNumber, setSecondWitnessPhoneNumber] = useState("")
-    const [verification, setVerification] = useState("")
-    const [proveOfResidency, setProveOfResidency] = useState("")
-    const [photoImage, setPhotoImage] = useState("")
-
+    const [verification, setVerification] = useState(null)
+    const [proveOfResidency, setProveOfResidency] = useState(null)
+    const [photoImage, setPhotoImage] = useState(null)
     const [checkCurrentComponent, setCheckCurrentComponent] = useState("<PersonalInformation/>")
 
 
@@ -64,6 +61,7 @@ const AddAddress = () => {
             navigate('/')
         }
     }, [0])
+
 
     const getLoc = () => {
         navigator.geolocation.getCurrentPosition((postion)=>{
@@ -188,7 +186,12 @@ const AddAddress = () => {
                                     />
                             :   checkCurrentComponent === "<Prove/>" ?
                                     <Prove 
-                                        setBuildingType={setBuildingType}  
+                                        photoImage={photoImage} 
+                                        setPhotoImage={setPhotoImage} 
+                                        verification= {verification}
+                                        setVerification={setVerification}
+                                        proveOfResidency={proveOfResidency}
+                                        setProveOfResidency={setProveOfResidency}
                                     />
                             :  
                                 <ConfirmationPage 
@@ -198,6 +201,10 @@ const AddAddress = () => {
                                     secondWitnessPhoneNumber={secondWitnessPhoneNumber}
                                     firstWitnessRelationshipType={firstWitnessRelationshipType}
                                     secondWitnessRelationshipType={secondWitnessRelationshipType}
+                                    photoImage={photoImage} 
+                                    verification= {verification}
+                                    proveOfResidency={proveOfResidency}
+                                    propertyType={propertyType}
                                     city={city}
                                     zipCode={zipCode}
                                     longitude={longitude}
@@ -251,4 +258,4 @@ const AddAddress = () => {
      );
 }
  
-export default AddAddress;
+export default AddAddress

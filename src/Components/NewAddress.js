@@ -1,7 +1,19 @@
+import { useEffect } from "react";
+import { statesAndLga } from "../Context/StatesAndLga";
+
 const NewAddress = (props) => {
+    const states = []
+    for (const i in statesAndLga) {
+        states.push(i)
+    }
+    const lgas = (statesAndLga[props.state][0].lgas)
+
+    useEffect(() => {
+        props.getLocation()
+    }, [])
     return ( 
         <div className="form-1">
-            <p>Address Infomation</p>
+            <p>Address Infomation * <br />(3-5)</p>
             <div className="NewAddress">
                 <div className="inputGroup">
                     <select 
@@ -10,9 +22,12 @@ const NewAddress = (props) => {
                         onChange={(e) => props.setBuildingType(e.target.value)}
                     >
                         <option value="-">--Type of building--</option>
-                        <option value="1-bedroom-flat">1 bedroom flat</option>
-                        <option value="2-bedroom-flat">2 bedroom flat</option>
-                        <option value="3-bedroom-flat">3 bedroom flat</option>
+                        <option value="Bungalow">Bungalow</option>
+                        <option value="Terrace">Terrace</option>
+                        <option value="Duplex">Duplex</option>
+                        <option value="One story semi detached Duplex">One story semi detached Duplex</option>
+                        <option value="Rooms/Let in">Rooms/Let in</option>
+                        <option value="Traditional houses">Traditional houses</option>
                     </select>
                 </div>
                 <div className="inputGroup">
@@ -30,19 +45,21 @@ const NewAddress = (props) => {
                         value={props.state}
                         onChange={(e) => props.setState(e.target.value)}
                     >
-                        <option value="-">-State</option>
-                        <option value="Oyo">Oyo</option>
-                        <option value="Niger">Niger</option>
+                         { states.map((state) => (
+                            <option value={state}>{state}</option>
+                        )) }   
                     </select>
                 </div>
                 <div className="inputGroup">
-                    <input 
-                        type="text" 
-                        autoComplete="off"  
-                        placeholder="City" 
+                    <select
+                        type="dropdown" 
                         value={props.city}
                         onChange={(e) => props.setCity(e.target.value)}
-                    />
+                    >
+                        { lgas.map((lga) => (
+                            <option value={lga}>{lga}</option>
+                        )) } 
+                    </select>
                 </div>
                 <div className="inputGroup">
                     <input 
@@ -54,18 +71,14 @@ const NewAddress = (props) => {
                     />
                 </div>
                 <div className="inputGroup">
-                    <select 
-                        type="dropdown"
+                    <input 
+                        type="text"
                         value={props.propertyType}
+                        autoComplete="off"
+                        placeholder="--House/Plot/Flat--"
                         onChange={(e) => props.setPropertyType(e.target.value)}
-                    >
-                        <option value="-">--House/Plot/Flat--</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    />
+                    
                 </div>
 
                 <div className="inputGroup">
@@ -75,6 +88,7 @@ const NewAddress = (props) => {
                         placeholder="Latitude"
                         value={props.latitude}
                         onChange={(e) => props.setLatitude(e.target.value)}
+                        disabled
                     />
                 </div>
                 <div className="inputGroup">
@@ -84,6 +98,7 @@ const NewAddress = (props) => {
                         placeholder="Longitude" 
                         value={props.longitude}
                         onChange={(e) => props.setLongitude(e.target.value)}
+                        disabled
                     />
                 </div>
                 <div className="inputGroup">
@@ -92,14 +107,12 @@ const NewAddress = (props) => {
                         value={props.lengthOfResidency}
                         onChange={(e) => props.setLengthOfResidency(e.target.value)}
                     >
-                        <option value="-">--Lenght of stay--</option>
-                        <option value="Oyo">2 weeks</option>
-                        <option value="Niger">1 Months</option>
+                        <option value="-">--Lenght of Residency--</option>
+                        <option value="2 weeks">2 weeks</option>
+                        <option value="1 Months">1 Months</option>
                     </select>
                 </div>
-                <div className="inputGroup">
-                    <button type="button" onClick={props.getLocation}>Get Longitude and Latitude</button>
-                </div>
+                
                 
             </div>
         </div>

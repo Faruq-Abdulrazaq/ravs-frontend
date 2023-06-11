@@ -4,7 +4,7 @@ import SideNav from "./Components/SideNav";
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "./Context/AuthContext";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { DownloadTableExcel } from 'react-export-table-to-excel';
 import { useReactToPrint } from 'react-to-print';
 
 
@@ -28,6 +28,7 @@ const AllAddress = () => {
     const notVerified = "Not verified"
     const verified = "Verified"
     const componentRef = useRef()
+    const tableRef = useRef(null);
     
     useEffect(() => {
         if (user) {
@@ -124,23 +125,26 @@ const AllAddress = () => {
                                     onChange={(e) => setSearch(e.target.value)}
                                 />
                             </div>
-                            <ReactHTMLTableToExcel
-                                    id="test-table-xls-button"
-                                    className="download-table-xls-button"
-                                    table="table-to-xls"
-                                    filename="tablexls"
-                                    sheet="tablexls"
-                                    buttonText="Download as XLS"
-                                />
+                            <DownloadTableExcel
+                                filename="users table"
+                                sheet="users"
+                                currentTableRef={tableRef.current}
+                                
+                            >
+
+                            <button className="download-table-xls-button"> Export excel </button>
+
+                            </DownloadTableExcel>
+                            
                             <button type='button' onClick={generatePdf} className='download-table-xls-button'>Print</button>
                         </form>
                     </div>
                 </header>
                 <h1 className="h1-address">All address</h1>
 
-                <section className="section-address">
+                <section className="section-address" ref={tableRef}>
                 
-                    <table cellPadding="0" cellSpacing="0" border="0" id="table-to-xls"  ref={componentRef}>
+                    <table cellPadding="0" cellSpacing="0" border="0"  ref={componentRef}>
                         <thead >
                             <tr className="tbl-header">
                                 <th>Surname</th>

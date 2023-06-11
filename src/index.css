@@ -612,6 +612,10 @@
   width: 20%;
   height: 10%;
   margin: 10px;
+} 
+
+.confirmationGroup label {
+  font-weight: lighter;
 }
 
 .inputGroup button {
@@ -758,71 +762,29 @@
 
 
 .container {
-  height: 300px;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #13121269;
+  border-radius: 5px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.inpdddut[type="file"] {
   padding: 10px;
-  gap: 5px;
-  background-color: rgba(0, 110, 255, 0.041);
-}
-
-.header {
-  flex: 1;
-  width: 100%;
-  border: 2px dashed #13B955;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.header svg {
-  height: 100px;
-}
-
-.header p {
-  text-align: center;
-  color: black;
-}
-
-.footer {
-  background-color: rgba(0, 110, 255, 0.075);
-  width: 100%;
-  height: 40px;
-  padding: 8px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  color: black;
+  margin-bottom: 20px;
   border: none;
-}
-
-.footer svg {
-  height: 130%;
-  fill: #13B955;
-  background-color: rgba(70, 66, 66, 0.103);
-  border-radius: 50%;
-  padding: 2px;
+  background-color: #13B955;
+  border-radius: 5px;
+  width: 100%;
   cursor: pointer;
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
 }
 
-.footer p {
-  flex: 1;
-  text-align: center;
-}
-
-#file {
-  display: none;
-}
 
 .actionBtn {
   display: flex;
@@ -992,3 +954,93 @@ td {
     margin: 0 10px;
     cursor: pointer;
  }
+
+ .loader {
+  cursor: not-allowed;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #FFF #FFF transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #13B955 #FF3D00;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 32px;
+  height: 32px;
+  border-color: #FFF #FFF transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.commentpopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentpopup-inner {
+  position: relative;
+  padding: 32px;
+  width: 30%;
+  max-width: 640px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.commentpopup-inner .close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: red;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  font-weight: bolder;
+}
+ 

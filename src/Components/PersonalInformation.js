@@ -1,7 +1,13 @@
+import { statesAndLga } from "../Context/StatesAndLga";
 const PersonalInformation = (props) => {
+    const states = []
+    for (const i in statesAndLga) {
+        states.push(i)
+    }
+    const lgas = (statesAndLga[props.sor][0].lgas)
     return ( 
         <div className="form-1">
-            <p>Personal Infomation</p>
+            <p>Personal Infomation * <br /> (1-5)</p>
             <div className="personalInformation">
                 <div className="inputGroup">
                     <input 
@@ -44,25 +50,29 @@ const PersonalInformation = (props) => {
                         <option value="Female">Female</option>
                     </select>
                 </div>
+
                 <div className="inputGroup">
-                    <input 
-                        type="text" 
-                        autoComplete="off" 
-                        name="text" 
-                        placeholder="State Of Origin"
+                    <select 
+                        type="dropdown"
                         value={props.sor}
                         onChange={(e) => props.setSor(e.target.value)}
-                     />
+                    >
+                     { states.map((state) => (
+                        <option value={state}>{state}</option>
+                     )) }   
+                    </select>
                 </div>
+               
                 <div className="inputGroup">
-                    <input 
-                        type="text" 
-                        autoComplete="off" 
-                        name="text" 
-                        placeholder="Local Govnment Area" 
+                    <select 
+                        type="dropdown"
                         value={props.lga}
                         onChange={(e) => props.setLga(e.target.value)}
-                    />
+                    >
+                    { lgas.map((lga) => (
+                        <option value={lga}>{lga}</option>
+                     )) } 
+                    </select>
                 </div>
                 <div className="inputGroup">
                     <input 

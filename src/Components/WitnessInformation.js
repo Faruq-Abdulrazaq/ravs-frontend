@@ -1,15 +1,14 @@
 const WitnessInformation = (props) => {
-    console.log(props)
     return ( 
         <div className="form-1">
-            <p>Witness Infomation</p>
+            <p>Witness Infomation <br />(4-5)</p>
 
             <div className="witnessInformation">                            
                 <div className="inputGroup">
                     <input 
                         type="text" 
                         autoComplete="off"  
-                        placeholder="First witness fullname" 
+                        placeholder="First witness fullname *" 
                         value={props.firstWitnessFullName}
                         onChange={(e) => props.setFirstWitnessFullName(e.target.value)}
                     />
@@ -29,10 +28,16 @@ const WitnessInformation = (props) => {
                         value={props.firstWitnessRelationshipType}
                         onChange={(e) => props.setFirstWitnessRelationshipType(e.target.value)}
                     >
-                        <option value="-">-Relationship with first witness-</option>
-                        <option value="1-bedroom-flat">Sister</option>
-                        <option value="2-bedroom-flat">Father</option>
-                        <option value="3-bedroom-flat">Uncle</option>
+                        <option value="-">-Relationship with first witness - *</option>
+                        <option value="Father">Father</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Brother">Brother</option>
+                        <option value="Sister">Sister</option>
+                        <option value="Uncle">Uncle</option>
+                        <option value="Neigbour">Neigbour</option>
+                        <option value="Landload/Landlady">Landload/Landlady</option>
+                        <option value="Employer">Employer</option>
+                        <option value="Friend">Friend</option>
                     </select>
                 </div>
                 <div className="inputGroup">
@@ -42,9 +47,16 @@ const WitnessInformation = (props) => {
                         onChange={(e) => props.setSecondWitnessRelationshipType(e.target.value)}
                     >
                         <option value="-">-Relationship with second witness-</option>
-                        <option value="1-bedroom-flat">Sister</option>
-                        <option value="2-bedroom-flat">Father</option>
-                        <option value="3-bedroom-flat">Uncle</option>
+                        <option value="-">-Relationship with first witness-</option>
+                        <option value="Father">Father</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Brother">Brother</option>
+                        <option value="Sister">Sister</option>
+                        <option value="Uncle">Uncle</option>
+                        <option value="Neigbour">Neigbour</option>
+                        <option value="Landload/Landlady">Landload/Landlady</option>
+                        <option value="Employer">Employer</option>
+                        <option value="Friend">Friend</option>
                     </select>
                 </div>
 
@@ -52,7 +64,7 @@ const WitnessInformation = (props) => {
                     <input 
                         type="number" 
                         autoComplete="off" 
-                        placeholder="First witness phone number" 
+                        placeholder="First witness phone number *" 
                         value={props.firstWitnessPhoneNumber}
                         onChange={(e) => props.setFirstWitnessPhoneNumber(e.target.value)}
                     />
