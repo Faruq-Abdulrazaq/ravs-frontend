@@ -16,6 +16,8 @@ const Dashboard = () => {
     const [role, setRole] = useState("")
     const [dbVerify, setDbVerify] = useState(null)
     const [dbNotVerify, setNotDbVerify] = useState(null)
+    const [totalRegistered, setTotalRegistered] = useState(null)
+    
 
     useEffect(() => {
         if (user) {
@@ -34,6 +36,7 @@ const Dashboard = () => {
     const getData = async () => {
         const unVerified = []
         const verified = []
+        const totalRegistered = []
 
         const unVerifiedQuerySnapshot = query(collection(db, "RAVS"), where("verified", "==", false));
         const unVerifiedQuerySnapt = await getDocs(unVerifiedQuerySnapshot);
@@ -48,6 +51,13 @@ const Dashboard = () => {
             verified.push(doc.data())
         });
         setDbVerify(verified.length)
+
+        const registeredQuerySnapshot = query(collection(db, "RAVS"));
+        const registeredSnapshot = await getDocs(registeredQuerySnapshot);
+        registeredSnapshot.forEach((doc) => {
+            totalRegistered.push(doc.data())
+        });
+        setTotalRegistered(totalRegistered.length)
         
 
     }
@@ -74,7 +84,7 @@ const Dashboard = () => {
                             <img src={process.env.PUBLIC_URL + '/icons/address-location-map-svgrepo-com.png'} alt="" />
                         </s>
                         <div className="stb-c-digits">
-                            <h1>87678982</h1>
+                            <h1>{totalRegistered}</h1>
                             <p>Total Registered Addresses</p>
                         </div>
                     </div>
@@ -102,7 +112,7 @@ const Dashboard = () => {
                             <img src={process.env.PUBLIC_URL + '/icons/map-round-667-svgrepo-com.png'} alt="" />
                         </s>
                         <div className="stb-c-digits">
-                            <h1>68</h1>
+                            <h1>0</h1>
                             <p>Map approved</p>
                         </div>
                     </div>

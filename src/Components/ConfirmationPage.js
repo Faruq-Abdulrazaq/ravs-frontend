@@ -53,6 +53,7 @@ const ConfirmationPage = (props) => {
         photoImage:  photoImageLink,
     }
 
+
     const compulsoryData = {
         surname: props.surname,
         othernames: props.fullname,
@@ -126,23 +127,24 @@ const ConfirmationPage = (props) => {
             }
         }
         if (count.length <= 3) {
-           await  uploadVerification()
-           await uploadProveOfResidency()
-           await uploadPhotoImage()
-            const url = "https://fine-cyan-gharial-sari.cyclic.app/upload";
-            try {
-                const res = await axios.post(url, {
-                    headers: {},
-                    params: {
+            uploadVerification()
+            uploadProveOfResidency()
+            uploadPhotoImage()
+            if (count.length <= 3) {
+                const url = "https://fine-cyan-gharial-sari.cyclic.app/upload";
+                try {
+                    const res = await axios.post(url, {
+                        headers: {},
                         registeredData: registeredData,
                         date: new Date(),
                         verified: false,
-                    }
-                });
-                navigate('/Dashboard')
-            } catch (err) {
-                console.log(err);
-            }
+                    
+                    });
+                    navigate('/Dashboard')
+                } catch (err) {
+                    console.log(err);
+                }
+                }
         } else {
              setErrorMessage("Fill out all the compulsory form fields (*) ")
              setPopupStatus(true)
@@ -178,7 +180,7 @@ const ConfirmationPage = (props) => {
                 </div>
                 <div className="confirmationGroup">
                     <label htmlFor="">Home Town *</label>
-                    <h4>{props.hometown}</h4>
+                    <h4>{props.homeTown}</h4>
                 </div>
                 <div className="confirmationGroup">
                     <label htmlFor="">Occupation *</label>

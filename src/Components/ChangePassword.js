@@ -5,13 +5,13 @@ const ChangePassword = () => {
                 <p>Change password</p>
                 <div className="settingsInformation">
                     <div className="inputGroup">
-                        <input type="Passowrd" autoComplete="off" name="text" placeholder="Old password" />
+                        <input type="Passowrd" name="text" placeholder="Old password" />
                     </div>
                     <div className="inputGroup">
-                        <input type="Password" autoComplete="off" name="text" placeholder="New Password" />
+                        <input type="Password" name="text" placeholder="New Password" />
                     </div>
                     <div className="inputGroup">
-                        <input type="password" autoComplete="off" name="text" placeholder="Confirm new password" />
+                        <input type="password" name="text" placeholder="Confirm new password" />
                     </div>
             
                 </div>

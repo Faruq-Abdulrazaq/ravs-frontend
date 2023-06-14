@@ -34,7 +34,7 @@ const NewAddress = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="text" 
-                        autoComplete="off"  
+                         
                         placeholder="Street *" 
                         value={props.street}
                         onChange={(e) => props.setStreet(e.target.value)}
@@ -68,7 +68,7 @@ const NewAddress = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="number" 
-                        autoComplete="off" 
+                        
                         required
                         placeholder="Zip code *"
                         value={props.zipCode}
@@ -89,7 +89,7 @@ const NewAddress = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="number" 
-                        autoComplete="off" 
+                        
                         placeholder="Latitude"
                         value={props.latitude}
                         onChange={(e) => props.setLatitude(e.target.value)}
@@ -100,7 +100,7 @@ const NewAddress = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="number" 
-                        autoComplete="off" 
+                        
                         placeholder="Longitude" 
                         value={props.longitude}
                         onChange={(e) => props.setLongitude(e.target.value)}

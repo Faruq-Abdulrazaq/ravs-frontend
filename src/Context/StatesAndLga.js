@@ -10,6 +10,7 @@ export const statesAndLga = {
     "Abia" : [{
         "state": "Abia",
         "lgas": [
+            "Select",
             "Aba North",
             "Aba South",
             "Arochukwu",
@@ -37,6 +38,7 @@ export const statesAndLga = {
     "Adamawa" : [{
         "state": "Adamawa",
         "lgas": [
+            "Select",
             "Demsa",
             "Fufore",
             "Ganye",
@@ -65,6 +67,7 @@ export const statesAndLga = {
     "Akwa Ibom" : [{
         "state": "Akwa Ibom",
         "lgas": [
+            "Select",
             "Abak",
             "Eastern-Obolo",
             "Eket",
@@ -103,6 +106,7 @@ export const statesAndLga = {
     "Anambra" : [{
         "state": "Anambra",
         "lgas": [
+            "Select",
             "Aguata",
             "Anambra East",
             "Anambra West",
@@ -130,6 +134,7 @@ export const statesAndLga = {
     "Bauchi" : [{
         "state": "Bauchi",
         "lgas": [
+            "Select",
             "Alkaleri",
             "Bauchi",
             "Bogoro",
@@ -157,6 +162,7 @@ export const statesAndLga = {
     "Benue" : [{
         "state": "Benue",
         "lgas": [
+            "Select",
             "Ado",
             "Agatu",
             "Apa",
@@ -186,6 +192,7 @@ export const statesAndLga = {
     "Borno" : [{
         "state": "Borno",
         "lgas": [
+            "Select",
             "Abadam",
             "Askira-Uba",
             "Bama",
@@ -220,6 +227,7 @@ export const statesAndLga = {
     "Bayelsa" : [{
         "state": "Bayelsa",
         "lgas": [
+            "Select",
             "Brass",
             "Ekeremor",
             "Kolokuma\/Opokuma",
@@ -235,6 +243,7 @@ export const statesAndLga = {
     "Cross River" : [{
         "state": "Cross River",
         "lgas": [
+            "Select",
             "Abi",
             "Akamkpa",
             "Akpabuyo",
@@ -260,6 +269,7 @@ export const statesAndLga = {
     "Delta" : [{
         "state": "Delta",
         "lgas": [
+            "Select",
             "Aniocha North",
             "Aniocha-North",
             "Aniocha-South",
@@ -293,6 +303,7 @@ export const statesAndLga = {
     "Eboyi": [{
         "state": "Ebonyi",
         "lgas": [
+            "Select",
             "Abakaliki",
             "Afikpo-North",
             "Afikpo South (Edda)",
@@ -312,6 +323,7 @@ export const statesAndLga = {
     "Edo" : [{
         "state": "Edo",
         "lgas": [
+            "Select",
             "Akoko Edo",
             "Egor",
             "Esan-Central",
@@ -337,6 +349,7 @@ export const statesAndLga = {
     "Ekiti" : [{
         "state": "Ekiti",
         "lgas": [
+            "Select",
             "Ado-Ekiti",
             "Efon",
             "Ekiti-East",
@@ -360,6 +373,7 @@ export const statesAndLga = {
     "Enugu" : [{
         "state": "Enugu",
         "lgas": [
+            "Select",
             "Aninri",
             "Awgu",
             "Enugu-East",
@@ -384,6 +398,7 @@ export const statesAndLga = {
     "FCT" : [{
         "state": "Federal Capital Territory",
         "lgas": [
+            "Select",
             "Abuja",
             "Kwali",
             "Kuje",
@@ -397,6 +412,7 @@ export const statesAndLga = {
     "Gombe" : [{
         "state": "Gombe",
         "lgas": [
+            "Select",
             "Akko",
             "Balanga",
             "Billiri",
@@ -415,6 +431,7 @@ export const statesAndLga = {
     "Imo" : [{
         "state": "Imo",
         "lgas": [
+            "Select",
             "Aboh-Mbaise",
             "Ahiazu-Mbaise",
             "Ehime-Mbano",
@@ -449,6 +466,7 @@ export const statesAndLga = {
     "Jigawa" : [{
         "state": "Jigawa",
         "lgas": [
+            "Select",
             "Auyo",
             "Babura",
             "Biriniwa",
@@ -482,6 +500,7 @@ export const statesAndLga = {
     "Kebbi": [{
         "state": "Kebbi",
         "lgas": [
+            "Select",
             "Aleiro",
             "Arewa-Dandi",
             "Argungu",
@@ -510,6 +529,7 @@ export const statesAndLga = {
     "Kaduna" : [{
         "state": "Kaduna",
         "lgas": [
+            "Select",
             "Birnin-Gwari",
             "Chikun",
             "Giwa",
@@ -540,6 +560,7 @@ export const statesAndLga = {
     "Kano": [{
         "state": "Kano",
         "lgas": [
+            "Select",
             "Ajingi",
             "Albasu",
             "Bagwai",
@@ -591,6 +612,7 @@ export const statesAndLga = {
     "Kogi" : [{
         "state": "Kogi",
         "lgas": [
+            "Select",
             "Adavi",
             "Ajaokuta",
             "Ankpa",
@@ -619,6 +641,7 @@ export const statesAndLga = {
     "Katsina": [{
         "state": "Katsina",
         "lgas": [
+            "Select",
             "Bakori",
             "Batagarawa",
             "Batsari",
@@ -660,6 +683,7 @@ export const statesAndLga = {
     "Kwara": [{
         "state": "Kwara",
         "lgas": [
+            "Select",
             "Asa",
             "Baruten",
             "Edu",
@@ -681,6 +705,7 @@ export const statesAndLga = {
     "Lagos" : [{
         "state": "Lagos",
         "lgas": [
+            "Select",
             "Agege",
             "Ajeromi-Ifelodun",
             "Alimosho",
@@ -709,6 +734,7 @@ export const statesAndLga = {
     "Nasarawa" : [{
         "state": "Nasarawa",
         "lgas": [
+            "Select",
             "Akwanga",
             "Awe",
             "Doma",
@@ -729,6 +755,7 @@ export const statesAndLga = {
     "Niger" :[{
         "state": "Niger",
         "lgas": [
+            "Select",
             "Agaie",
             "Agwara",
             "Bida",
@@ -761,6 +788,7 @@ export const statesAndLga = {
     "Ogun" : [{
         "state": "Ogun",
         "lgas": [
+            "Select",
             "Abeokuta-North",
             "Abeokuta-South",
             "Ado-Odo\/Ota",
@@ -787,6 +815,7 @@ export const statesAndLga = {
     "Ondo" : [{
         "state": "Ondo",
         "lgas": [
+            "Select",
             "Akoko North-East",
             "Akoko North-West",
             "Akoko South-West",
@@ -812,6 +841,7 @@ export const statesAndLga = {
     "Osun" : [{
         "state": "Osun",
         "lgas": [
+            "Select",
             "Atakumosa West",
             "Atakumosa East",
             "Ayedaade",
@@ -848,6 +878,7 @@ export const statesAndLga = {
     "Oyo" : [{
         "state": "Oyo",
         "lgas": [
+            "Select",
             "Afijio",
             "Akinyele",
             "Atiba",
@@ -889,6 +920,7 @@ export const statesAndLga = {
     "Plateau" : [{
         "state": "Plateau",
         "lgas": [
+            "Select",
             "Barkin-Ladi",
             "Bassa",
             "Bokkos",
@@ -913,6 +945,7 @@ export const statesAndLga = {
     "Rivers" : [{
         "state": "Rivers",
         "lgas": [
+            "Select",
             "Abua\/Odual",
             "Ahoada-East",
             "Ahoada-West",
@@ -944,6 +977,7 @@ export const statesAndLga = {
     "Sokoto" : [{
         "state": "Sokoto",
         "lgas": [
+            "Select",
             "Binji",
             "Bodinga",
             "Dange-Shuni",
@@ -973,6 +1007,7 @@ export const statesAndLga = {
     "Taraba" : [{
         "state": "Taraba",
         "lgas": [
+            "Select",
             "Ardo-Kola",
             "Bali",
             "Donga",
@@ -996,6 +1031,7 @@ export const statesAndLga = {
     "Yobe": [{
         "state": "Yobe",
         "lgas": [
+            "Select",
             "Bade",
             "Bursari",
             "Damaturu",
@@ -1020,6 +1056,7 @@ export const statesAndLga = {
     "Zamfara": [{
         "state": "Zamfara",
         "lgas": [
+            "Select",
             "Anka",
             "Bakura",
             "Birnin Magaji/Kiyaw",

@@ -146,7 +146,7 @@ const AllAddress = () => {
 
                 <section className="section-address" ref={tableRef}>
                 
-                    <table cellPadding="0" cellSpacing="0" border="0"  >
+                    <table cellPadding="0" cellSpacing="0" border="0">
                         <thead >
                             <tr className="tbl-header">
                                 <th>Surname</th>

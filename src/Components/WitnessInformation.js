@@ -7,7 +7,7 @@ const WitnessInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="text" 
-                        autoComplete="off"  
+                         
                         placeholder="First witness fullname *" 
                         required
                         value={props.firstWitnessFullName}
@@ -17,7 +17,7 @@ const WitnessInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="text" 
-                        autoComplete="off"  
+                         
                         placeholder="Second witness fullname"
                         required
                         value={props.secondWitnessFullName}
@@ -68,7 +68,7 @@ const WitnessInformation = (props) => {
                     <input 
                         type="number" 
                         required
-                        autoComplete="off" 
+                        
                         placeholder="First witness phone number *" 
                         value={props.firstWitnessPhoneNumber}
                         onChange={(e) => props.setFirstWitnessPhoneNumber(e.target.value)}
@@ -77,7 +77,7 @@ const WitnessInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="number" 
-                        autoComplete="off"  
+                         
                         required
                         placeholder="Second witness phone number" 
                         value={props.secondWitnessPhoneNumber}

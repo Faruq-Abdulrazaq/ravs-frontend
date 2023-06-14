@@ -12,7 +12,7 @@ const PersonalInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="text" 
-                        autoComplete="off" 
+                        
                         name="text" 
                         placeholder="Surname"
                         value={props.surname}
@@ -23,7 +23,7 @@ const PersonalInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="text" 
-                        autoComplete="off" 
+                        
                         name="text" 
                         placeholder="Other names"
                         value={props.fullname}
@@ -34,7 +34,7 @@ const PersonalInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="date" 
-                        autoComplete="off" 
+                        
                         name="text"
                         placeholder="Date of Birth"
                         value={props.dob}
@@ -83,7 +83,7 @@ const PersonalInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="text" 
-                        autoComplete="off" 
+                        
                         name="text" 
                         placeholder="Home Area"
                         value={props.homeTown}
