@@ -1,3 +1,4 @@
+import { useForm } from 'react-hook-form';
 const ContactInfomation = (props) => {
     const Occupations = [  
         "Occupation *", 
@@ -50,6 +51,27 @@ const ContactInfomation = (props) => {
         "TelecommunicationTourism & Travels",
         "Transportation/ Driving & Logistics"
     ]
+    const handlePhoneNumber = (e) => {
+        if (props.phoneNumber.length != 11) {
+            props.setPhoneNumber(e.target.value)
+        } else {
+            var str = props.phoneNumber;
+            str = str.substring(0, str.length - 1);
+            props.setPhoneNumber(str)
+        }
+    }
+    
+    const handleAltPhoneNumber = (e) => {
+        if (props.alternativePhoneNumber.length != 11) {
+            props.setAlternativePhoneNumber(e.target.value)
+        } else {
+            var str = props.alternativePhoneNumber;
+            str = str.substring(0, str.length - 1);
+            props.setAlternativePhoneNumber(str)
+        }
+    }
+    
+
     return ( 
         <div className="form-1">
             <p>Contact Infomation <br /> (2-5)</p>
@@ -59,37 +81,37 @@ const ContactInfomation = (props) => {
                         type="dropdown"
                         value={props.occupation}
                         onChange={(e) => props.setOccupation(e.target.value)}
+                        required
                     >
                         {Occupations.map((occupation) => (
-                            <option value={occupation}>{occupation}</option>
+                            <option value={occupation} key={occupation}>{occupation}</option>
                         ))}
                     </select>
                 </div>
                 <div className="inputGroup">
                     <input 
                         type="number" 
-                        autoComplete="off" 
                         placeholder="Main phone number *"
                         value={props.phoneNumber}
-                        onChange={(e) => props.setPhoneNumber(e.target.value)}
+                        onChange={handlePhoneNumber}
+                        required
                     />
                 </div>
                 <div className="inputGroup">
                     <input 
                         type="number" 
-                        autoComplete="off"  
                         placeholder="Altanative phone number"
                         value={props.alternativePhoneNumber}
-                        onChange={(e) => props.setAlternativePhoneNumber(e.target.value)}
+                        onChange={handleAltPhoneNumber}
                     />
                 </div>
                 <div className="inputGroup">
                     <input 
                         type="email" 
-                        autoComplete="off" 
                         placeholder="Email Address *"
                         value={props.emailAddress}
                         onChange={(e) => props.setEmailAddress(e.target.value)}
+                        required
                     />
                 </div>
             </div> 

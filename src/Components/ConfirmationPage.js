@@ -12,7 +12,6 @@ import { useState } from 'react';
 import ErrorPopup from './ErrorPopup';
 
 const ConfirmationPage = (props) => {
-    console.log(props.lengthOfResidency)
 
     const navigate = useNavigate();
     const [ verificationLink, setVerificationLink ] = useState('')
@@ -120,30 +119,34 @@ const ConfirmationPage = (props) => {
     
     const handleUpload = async () => {
         setIsLoading(true)
+        const count = []
         for ( let g in compulsoryData) {
             if (compulsoryData[g] === "") {
-                setErrorMessage("Fill out all the compulsory form fields (*) ")
-                setPopupStatus(true)
-                setIsLoading(false)
-            } else {
-                uploadVerification()
-                uploadProveOfResidency()
-                uploadPhotoImage()
-                const url = "https://fine-cyan-gharial-sari.cyclic.app/upload";
-                try {
-                    const res = await axios.post(url, {
-                        headers: {},
-                        params: {
-                            registeredData: registeredData,
-                            date: new Date(),
-                            verified: false,
-                        }
-                    });
-                    navigate('/Dashboard')
-                } catch (err) {
-                    console.log(err);
-                }
+                count.push(compulsoryData[g])                
             }
+        }
+        if (count.length <= 3) {
+           await  uploadVerification()
+           await uploadProveOfResidency()
+           await uploadPhotoImage()
+            const url = "https://fine-cyan-gharial-sari.cyclic.app/upload";
+            try {
+                const res = await axios.post(url, {
+                    headers: {},
+                    params: {
+                        registeredData: registeredData,
+                        date: new Date(),
+                        verified: false,
+                    }
+                });
+                navigate('/Dashboard')
+            } catch (err) {
+                console.log(err);
+            }
+        } else {
+             setErrorMessage("Fill out all the compulsory form fields (*) ")
+             setPopupStatus(true)
+             setIsLoading(false)
         }
     }
     return ( 
@@ -218,7 +221,7 @@ const ConfirmationPage = (props) => {
                     <h4>{props.zipCode}</h4>
                 </div>
                 <div className="confirmationGroup">
-                    <label htmlFor="">Logitude *</label>
+                    <label htmlFor="">Longitude *</label>
                     <h4>{props.longitude}</h4>
                 </div>
                 <div className="confirmationGroup">

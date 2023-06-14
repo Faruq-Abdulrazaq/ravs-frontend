@@ -14,11 +14,18 @@
   align-items: center;
 }
 
-.dashboardPage, .helpPage, .statePage {
+.dashboardPage, .helpPage, .statePage, .ManageSupervisor {
   background: #e3ede3;
   width: 100%;
   height: 100vh;
   display: flex;
+}
+
+.viewPage {
+  display: flex;
+  justify-content: center;
+  background: #e3ede3;
+  width: 100%;
 }
 
 .loginPage .main {
@@ -350,6 +357,20 @@
   justify-content: space-evenly;
 }
 
+.help {
+  width: 100%;
+  height: 50%;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.help-p {
+  margin: 5px 30px;
+}
+
 .main-status-bar .stb-c {
   width: 20%;
   height: 80%;
@@ -597,10 +618,16 @@
   width: 93%;
   margin: 0 3.5%;
   height: 75%;
+
+}
+
+.settingsMain form{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .inputGroup {
@@ -820,6 +847,7 @@ label {
   color: #13B955;
   cursor: pointer;
   border-left: 5px solid #13B955;
+  margin: 0 10px;
 }
 
 .nav-settings ul li:hover {
@@ -941,11 +969,12 @@ td {
   }
  }
 
+
  .download-table-xls-button {
     width: 90px;
     background: #13B955;
     color: #000;
-    height: 70%;
+    height: 40%;
     border: 2px solid transparent;
     border-radius: 8px;
     outline: none;
@@ -1043,4 +1072,32 @@ td {
   border: none;
   font-weight: bolder;
 }
+
+.openCamera {
+  background: #13B955;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.openCamera:hover {
+  opacity: 0.6;
+}
  
+.displayA4 {
+  width: 794px;
+  height: 1123px;
+  background: url(https://images.pexels.com/photos/6843561/pexels-photo-6843561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.displayContent {
+  width: 90%;
+  height: 95%;
+  background: blue;
+}

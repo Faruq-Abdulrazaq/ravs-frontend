@@ -48,6 +48,7 @@ const AddAddress = () => {
     const [proveOfResidency, setProveOfResidency] = useState(null)
     const [photoImage, setPhotoImage] = useState(null)
     const [checkCurrentComponent, setCheckCurrentComponent] = useState("<PersonalInformation/>")
+    const [role, setRole] = useState("")
 
 
     useEffect(() => {
@@ -57,6 +58,7 @@ const AddAddress = () => {
             setUserSurname(local.surname)
             setOthername(local.othername)
             setProfileUrl(local.imgUrl)
+            setRole(local.user)
         } else {
             navigate('/')
         }
@@ -110,10 +112,13 @@ const AddAddress = () => {
                 othername={othername}
                 email={email}
                 profileUrl={profileUrl}
+                role={role}
             />
             <section className="addAddress">
                 <header>
-                    <GetDate />
+                    <GetDate
+                        role={role}   
+                    />
                 </header>
                 <div className="addAddress-form">
                     <form action="" >

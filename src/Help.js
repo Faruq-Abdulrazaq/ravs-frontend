@@ -11,6 +11,8 @@ const Help = () => {
     const [othername, setOthername] = useState("")
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
+    const [role, setRole] = useState("")
+
 
     useEffect(() => {
         if (user) {
@@ -19,10 +21,12 @@ const Help = () => {
             setUserSurname(local.surname)
             setOthername(local.othername)
             setProfileUrl(local.imgUrl)
+            setRole(local.user)
         } else {
             navigate('/')
         }
     }, [0])
+    
     return ( 
         <div className="helpPage">
         <SideNav 
@@ -30,13 +34,25 @@ const Help = () => {
             othername={othername}
             email={email}
             profileUrl={profileUrl}
+            role={role}   
         />
         <section className="mainnav">
             <header>
-                <GetDate />
+                <GetDate
+                     role={role} 
+                     title = "Help"   
+                />
             </header>
-            <div className="main-status-bar">
-            
+            <div className="help">
+                <h4>How to use KYTC</h4>
+                    <p className="help-p">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, repellat dolores ea cupiditate, dicta quisquam nam culpa quidem tenetur aperiam cum labore blanditiis rem ducimus, debitis dignissimos delectus nisi aliquam.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, repellat dolores ea cupiditate, dicta quisquam nam culpa quidem tenetur aperiam cum labore blanditiis rem ducimus, debitis dignissimos delectus nisi aliquam.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, repellat dolores ea cupiditate, dicta quisquam nam culpa quidem tenetur aperiam cum labore blanditiis rem ducimus, debitis dignissimos delectus nisi aliquam.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, repellat dolores ea cupiditate, dicta quisquam nam culpa quidem tenetur aperiam cum labore blanditiis rem ducimus, debitis dignissimos delectus nisi aliquam.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, repellat dolores ea cupiditate, dicta quisquam nam culpa quidem tenetur aperiam cum labore blanditiis rem ducimus, debitis dignissimos delectus nisi aliquam.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, repellat dolores ea cupiditate, dicta quisquam nam culpa quidem tenetur aperiam cum labore blanditiis rem ducimus, debitis dignissimos delectus nisi aliquam.
+                    </p>
             </div>
         </section>
     </div> 

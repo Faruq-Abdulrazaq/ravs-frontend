@@ -25,6 +25,7 @@ const AllAddress = () => {
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
     const [tables, setTables] = useState([])
+    const [role, setRole] = useState("")
     const notVerified = "Not verified"
     const verified = "Verified"
     const componentRef = useRef()
@@ -37,6 +38,7 @@ const AllAddress = () => {
             setUserSurname(local.surname)
             setOthername(local.othername)
             setProfileUrl(local.imgUrl)
+            setRole(local.user)
             handleGet();
         } else {
             navigate('/')
@@ -57,7 +59,7 @@ const AllAddress = () => {
     }
 
     const generatePdf = useReactToPrint({
-        content: ()=>componentRef.current,
+        content: ()=>tableRef.current,
         documentTitle: "Address documentation"
     })
 
@@ -68,12 +70,13 @@ const AllAddress = () => {
                 othername={othername}
                 email={email}
                 profileUrl={profileUrl}
+                role={role}
             />
             <section className="mainnav">
                  <header>
                     <div className="info-address">
                         <div className="infodetails">
-                            <span className="info-span-1">All Address</span>
+                            <span className="info-span-1">KYCT ({role})</span>
                             <span className="info-span-2">{day}, {date} {month} {year}</span>
                         </div>
                         <form>
@@ -129,7 +132,6 @@ const AllAddress = () => {
                                 filename="users table"
                                 sheet="users"
                                 currentTableRef={tableRef.current}
-                                
                             >
 
                             <button className="download-table-xls-button"> Export excel </button>
@@ -144,7 +146,7 @@ const AllAddress = () => {
 
                 <section className="section-address" ref={tableRef}>
                 
-                    <table cellPadding="0" cellSpacing="0" border="0"  ref={componentRef}>
+                    <table cellPadding="0" cellSpacing="0" border="0"  >
                         <thead >
                             <tr className="tbl-header">
                                 <th>Surname</th>
@@ -161,7 +163,7 @@ const AllAddress = () => {
                                 <th>Building Type</th>
                                 <th>House/Plot/Flat</th>
                                 <th>Street</th>
-                                <th>State</th>
+                                <th>State of residence</th>
                                 <th>City</th>
                                 <th>Zip Code</th>
                                 <th>Logitude</th>

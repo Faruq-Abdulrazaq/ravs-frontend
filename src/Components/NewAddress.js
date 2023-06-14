@@ -13,15 +13,16 @@ const NewAddress = (props) => {
     }, [])
     return ( 
         <div className="form-1">
-            <p>Address Infomation * <br />(3-5)</p>
+            <p>State of residence and address Infomation * <br />(3-5)</p>
             <div className="NewAddress">
                 <div className="inputGroup">
                     <select 
                         type="dropdown"
                         value={props.buildingType}
                         onChange={(e) => props.setBuildingType(e.target.value)}
+                        required
                     >
-                        <option value="-">--Type of building--</option>
+                        <option value="-">--Type of building-- *</option>
                         <option value="Bungalow">Bungalow</option>
                         <option value="Terrace">Terrace</option>
                         <option value="Duplex">Duplex</option>
@@ -34,19 +35,21 @@ const NewAddress = (props) => {
                     <input 
                         type="text" 
                         autoComplete="off"  
-                        placeholder="Street" 
+                        placeholder="Street *" 
                         value={props.street}
                         onChange={(e) => props.setStreet(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="inputGroup">
                     <select 
                         type="dropdown"
                         value={props.state}
+                        required
                         onChange={(e) => props.setState(e.target.value)}
                     >
                          { states.map((state) => (
-                            <option value={state}>{state}</option>
+                            <option value={state} key={state}>{state}</option>
                         )) }   
                     </select>
                 </div>
@@ -54,10 +57,11 @@ const NewAddress = (props) => {
                     <select
                         type="dropdown" 
                         value={props.city}
+                        required
                         onChange={(e) => props.setCity(e.target.value)}
                     >
                         { lgas.map((lga) => (
-                            <option value={lga}>{lga}</option>
+                            <option value={lga} key={lga}>{lga}</option>
                         )) } 
                     </select>
                 </div>
@@ -65,7 +69,8 @@ const NewAddress = (props) => {
                     <input 
                         type="number" 
                         autoComplete="off" 
-                        placeholder="Zip code"
+                        required
+                        placeholder="Zip code *"
                         value={props.zipCode}
                         onChange={(e) => props.setZipCode(e.target.value)}
                     />
@@ -75,7 +80,7 @@ const NewAddress = (props) => {
                         type="text"
                         value={props.propertyType}
                         autoComplete="off"
-                        placeholder="--House/Plot/Flat--"
+                        placeholder="--House/Plot/Flat-- *"
                         onChange={(e) => props.setPropertyType(e.target.value)}
                     />
                     
@@ -88,6 +93,7 @@ const NewAddress = (props) => {
                         placeholder="Latitude"
                         value={props.latitude}
                         onChange={(e) => props.setLatitude(e.target.value)}
+                        required
                         disabled
                     />
                 </div>
@@ -98,19 +104,18 @@ const NewAddress = (props) => {
                         placeholder="Longitude" 
                         value={props.longitude}
                         onChange={(e) => props.setLongitude(e.target.value)}
+                        required
                         disabled
                     />
                 </div>
                 <div className="inputGroup">
-                    <select 
-                        type="dropdown"
+                    <input 
+                        type="text"
+                        placeholder="--Lenght of Residency-- *"
+                        required
                         value={props.lengthOfResidency}
                         onChange={(e) => props.setLengthOfResidency(e.target.value)}
-                    >
-                        <option value="-">--Lenght of Residency--</option>
-                        <option value="2 weeks">2 weeks</option>
-                        <option value="1 Months">1 Months</option>
-                    </select>
+                    />
                 </div>
                 
                 

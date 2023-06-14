@@ -21,6 +21,13 @@ const SideNav = (props) => {
                 <Link to="/Dashboard" className="link-bk"><li className="active"><img src={process.env.PUBLIC_URL + '/icons/dashboard-alt-svgrepo-com.png'} alt="" /> Dashboard</li></Link>
                 <Link to="/All" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/address-location-map-svgrepo-com.png'} alt="" />All Address</li></Link>
                 <Link to="/States" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/exchange-svgrepo-com.png'} alt="" /> Active states</li></Link>
+                { props.role === "Admin" 
+                    ?
+                    <Link to="/Manage" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/manage-files-svgrepo-com.png'} alt="" /> Manage supervisors</li></Link>
+                    :
+                    ""
+                 }
+               
                 <Link to="/Add" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/plus-svgrepo-com.png'} alt="" /> Add new</li></Link>
                 <Link to="/Settings" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/gear.png'} alt="" /> Settings</li></Link>
                 <Link to="/Help" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/information.png'} alt="" /> Help</li></Link>

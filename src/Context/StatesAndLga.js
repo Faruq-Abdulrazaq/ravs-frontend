@@ -3,7 +3,8 @@ export const statesAndLga = {
         "state": "SOR",
         "lgas": [
             "Select"
-        ]
+        ],
+        id: 0 
     }],
 
     "Abia" : [{
@@ -29,7 +30,8 @@ export const statesAndLga = {
             "Ukwa East",
             "Umuahia North",
             "Umuahia South"
-        ]
+        ],
+    id: 1    
     }],
 
     "Adamawa" : [{
@@ -56,7 +58,8 @@ export const statesAndLga = {
             "Toungo",
             "Yola North",
             "Yola South"
-        ]
+        ],
+        id: 2
     }],
 
     "Akwa Ibom" : [{
@@ -93,7 +96,8 @@ export const statesAndLga = {
             "Urue-Offong/Oruko",
             "Uruan",
             "Uyo"
-        ]
+        ],
+        id: 3
     }],
 
     "Anambra" : [{
@@ -119,7 +123,8 @@ export const statesAndLga = {
             "Onitsha-South",
             "Orumba-North",
             "Orumba-South"
-        ]
+        ],
+        id: 4
     }],
 
     "Bauchi" : [{
@@ -145,7 +150,8 @@ export const statesAndLga = {
             "Toro",
             "Warji",
             "Zaki"
-        ]
+        ],
+        id: 5
     }],
 
     "Benue" : [{
@@ -173,7 +179,8 @@ export const statesAndLga = {
             "Ukum",
             "Ushongo",
             "Vandeikya"
-        ]
+        ],
+        id: 6
     }], 
 
     "Borno" : [{
@@ -206,7 +213,8 @@ export const statesAndLga = {
             "Ngala",
             "Nganzai",
             "Shani"
-        ]
+        ],
+        id: 7
     }],
 
     "Bayelsa" : [{
@@ -220,7 +228,8 @@ export const statesAndLga = {
             "Sagbama",
             "Southern-Ijaw",
             "Yenagoa"
-        ]
+        ],
+        id: 8
     }],
 
     "Cross River" : [{
@@ -244,7 +253,8 @@ export const statesAndLga = {
             "Ogoja",
             "Yakurr",
             "Yala"
-        ]
+        ],
+        id: 9
     }],
 
     "Delta" : [{
@@ -276,7 +286,8 @@ export const statesAndLga = {
             "Warri South-West",
             "Warri North",
             "Warri South"
-        ]
+        ],
+        id: 10
     }],
 
     "Eboyi": [{
@@ -294,7 +305,8 @@ export const statesAndLga = {
             "Izzi",
             "Ohaukwu",
             "Onicha"
-        ]
+        ],
+        id: 11
     }],
     
     "Edo" : [{
@@ -318,7 +330,8 @@ export const statesAndLga = {
             "Owan East",
             "Owan-West",
             "Uhunmwonde"
-        ]
+        ],
+        id: 12
     }],
 
     "Ekiti" : [{
@@ -340,7 +353,8 @@ export const statesAndLga = {
             "Ise-Orun",
             "Moba",
             "Oye"
-        ]
+        ],
+        id: 13
     }],
 
     "Enugu" : [{
@@ -363,7 +377,8 @@ export const statesAndLga = {
             "Udenu",
             "Udi",
             "Uzo-Uwani"
-        ]
+        ],
+        id: 14
     }],
 
     "FCT" : [{
@@ -375,7 +390,8 @@ export const statesAndLga = {
             "Gwagwalada",
             "Bwari",
             "Abaji"
-        ]
+        ],
+        id: 15
     }],
 
     "Gombe" : [{
@@ -392,7 +408,8 @@ export const statesAndLga = {
             "Nafada",
             "Shongom",
             "Yamaltu\/Deba"
-        ]
+        ],
+        id: 16
     }],
 
     "Imo" : [{
@@ -425,7 +442,8 @@ export const statesAndLga = {
             "Owerri-Municipal",
             "Owerri-North",
             "Owerri-West"
-        ]
+        ],
+        id: 17
     }],
 
     "Jigawa" : [{
@@ -457,7 +475,8 @@ export const statesAndLga = {
             "Sule-Tankarkar",
             "Taura",
             "Yankwashi"
-        ]
+        ],
+        id: 18
     }],
 
     "Kebbi": [{
@@ -484,7 +503,8 @@ export const statesAndLga = {
             "Wasagu/Danko",
             "Yauri",
             "Zuru"
-        ]
+        ],
+        id: 19
     }],
 
     "Kaduna" : [{
@@ -513,7 +533,8 @@ export const statesAndLga = {
             "Soba",
             "Zangon-Kataf",
             "Zaria"
-        ]
+        ],
+        id: 20
     }],
 
     "Kano": [{
@@ -563,7 +584,8 @@ export const statesAndLga = {
             "Ungogo",
             "Warawa",
             "Wudil"
-        ]
+        ],
+        id: 21 
     }],
 
     "Kogi" : [{
@@ -590,7 +612,8 @@ export const statesAndLga = {
             "Oyi",
             "Yagba-East",
             "Yagba-West"
-        ]
+        ],
+        id: 22
     }],
 
     "Katsina": [{
@@ -630,7 +653,8 @@ export const statesAndLga = {
             "Safana",
             "Sandamu",
             "Zango"
-        ]
+        ],
+        id: 23
     }],
 
     "Kwara": [{
@@ -650,7 +674,8 @@ export const statesAndLga = {
             "Oke-Ero",
             "Oyun",
             "Pategi"
-        ]
+        ],
+        id: 24
     }],
 
     "Lagos" : [{
@@ -677,7 +702,8 @@ export const statesAndLga = {
             "Shomolu",
             "Surulere",
             "Yewa-South"
-        ]
+        ],
+        id: 25
     }],
 
     "Nasarawa" : [{
@@ -696,7 +722,8 @@ export const statesAndLga = {
             "Obi",
             "Wamba",
             "Toto"
-        ]
+        ],
+        id: 26
     }],
 
     "Niger" :[{
@@ -727,7 +754,8 @@ export const statesAndLga = {
             "Suleja",
             "Tafa",
             "Wushishi"
-        ]
+        ],
+        id: 27
     }],
 
     "Ogun" : [{
@@ -752,7 +780,8 @@ export const statesAndLga = {
             "Remo-North",
             "Shagamu",
             "Yewa North"
-        ]
+        ],
+        id: 28
     }],
 
     "Ondo" : [{
@@ -776,7 +805,8 @@ export const statesAndLga = {
             "Ondo-East",
             "Ose",
             "Owo"
-        ]
+        ],
+        id: 29
     }],
 
     "Osun" : [{
@@ -811,7 +841,8 @@ export const statesAndLga = {
             "Oriade",
             "Orolu",
             "Osogbo"
-        ]
+        ],
+        id: 30
     }],
 
     "Oyo" : [{
@@ -851,7 +882,8 @@ export const statesAndLga = {
             "Saki-East",
             "Saki-West",
             "Surulere"
-        ]
+        ],
+        id: 31
     }],
 
     "Plateau" : [{
@@ -874,7 +906,8 @@ export const statesAndLga = {
             "Riyom",
             "Shendam",
             "Wase"
-        ]
+        ],
+        id: 32
     }],
 
     "Rivers" : [{
@@ -904,7 +937,8 @@ export const statesAndLga = {
             "Oyigbo",
             "Port-Harcourt",
             "Tai"
-        ]
+        ],
+        id: 33
     }],
 
     "Sokoto" : [{
@@ -932,7 +966,8 @@ export const statesAndLga = {
             "Wamako",
             "Wurno",
             "Yabo"
-        ]
+        ],
+        id: 34
     }],
 
     "Taraba" : [{
@@ -954,7 +989,8 @@ export const statesAndLga = {
             "Wukari",
             "Yorro",
             "Zing"
-        ]
+        ],
+        id: 35
     }],
 
     "Yobe": [{
@@ -977,7 +1013,8 @@ export const statesAndLga = {
             "Tarmuwa",
             "Yunusari",
             "Yusufari"
-        ]
+        ],
+        id: 36
     }],
 
     "Zamfara": [{
@@ -999,6 +1036,7 @@ export const statesAndLga = {
             "Talata-Mafara",
             "Tsafe",
             "Zurmi"
-        ]
+        ],
+        id: 37
     }
 ]}

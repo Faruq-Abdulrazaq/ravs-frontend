@@ -9,6 +9,7 @@ const WitnessInformation = (props) => {
                         type="text" 
                         autoComplete="off"  
                         placeholder="First witness fullname *" 
+                        required
                         value={props.firstWitnessFullName}
                         onChange={(e) => props.setFirstWitnessFullName(e.target.value)}
                     />
@@ -18,6 +19,7 @@ const WitnessInformation = (props) => {
                         type="text" 
                         autoComplete="off"  
                         placeholder="Second witness fullname"
+                        required
                         value={props.secondWitnessFullName}
                         onChange={(e) => props.setSecondWitnessFullName(e.target.value)}
                      />
@@ -25,6 +27,7 @@ const WitnessInformation = (props) => {
                 <div className="inputGroup">
                     <select 
                         type="dropdown"
+                        required
                         value={props.firstWitnessRelationshipType}
                         onChange={(e) => props.setFirstWitnessRelationshipType(e.target.value)}
                     >
@@ -42,6 +45,7 @@ const WitnessInformation = (props) => {
                 </div>
                 <div className="inputGroup">
                     <select 
+                        required
                         type="dropdown"
                         value={props.secondWitnessRelationshipType}
                         onChange={(e) => props.setSecondWitnessRelationshipType(e.target.value)}
@@ -63,6 +67,7 @@ const WitnessInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="number" 
+                        required
                         autoComplete="off" 
                         placeholder="First witness phone number *" 
                         value={props.firstWitnessPhoneNumber}
@@ -73,6 +78,7 @@ const WitnessInformation = (props) => {
                     <input 
                         type="number" 
                         autoComplete="off"  
+                        required
                         placeholder="Second witness phone number" 
                         value={props.secondWitnessPhoneNumber}
                         onChange={(e) => props.setSecondWitnessPhoneNumber(e.target.value)}
