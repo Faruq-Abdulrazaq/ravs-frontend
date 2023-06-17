@@ -1,7 +1,18 @@
 import { useEffect } from "react";
-import { statesAndLga } from "../Context/StatesAndLga";
+import { statesAndLga } from "../Context/StatesLgasRes";
 
 const NewAddress = (props) => {
+
+    const lenghtOfRes = (e) => {
+        if (props.lengthOfResidency.length != 2) {
+            props.setLengthOfResidency(e.target.value)
+        } else {
+            var str = props.lengthOfResidency;
+            str = str.substring(0, str.length - 1);
+            props.setLengthOfResidency(str)
+        }
+    }
+
     const states = []
     for (const i in statesAndLga) {
         states.push(i)
@@ -11,6 +22,7 @@ const NewAddress = (props) => {
     useEffect(() => {
         props.getLocation()
     }, [])
+
     return ( 
         <div className="form-1">
             <p>State of residence and address Infomation * <br />(3-5)</p>
@@ -114,7 +126,7 @@ const NewAddress = (props) => {
                         placeholder="--Lenght of Residency-- *"
                         required
                         value={props.lengthOfResidency}
-                        onChange={(e) => props.setLengthOfResidency(e.target.value)}
+                        onChange={lenghtOfRes}
                     />
                 </div>
                 

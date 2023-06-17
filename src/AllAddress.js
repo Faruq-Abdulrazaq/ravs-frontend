@@ -2,7 +2,7 @@ import React  from 'react';
 import axios from 'axios';
 import SideNav from "./Components/SideNav";
 import { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UserAuth } from "./Context/AuthContext";
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import { useReactToPrint } from 'react-to-print';
@@ -20,8 +20,7 @@ const AllAddress = () => {
     const { user } = UserAuth()
     const [search, setSearch] = useState('')
     const [searchFilter, setSearchFilter] = useState('')
-    const [userSurname, setUserSurname] = useState("")
-    const [othername, setOthername] = useState("")
+    const [userFullname, setUserFullname] = useState("")
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
     const [tables, setTables] = useState([])
@@ -35,8 +34,7 @@ const AllAddress = () => {
         if (user) {
             const local = JSON.parse(localStorage.getItem('RavsAuthUser'));
             setEmail(local.email)
-            setUserSurname(local.surname)
-            setOthername(local.othername)
+            setUserFullname(local.fullname)
             setProfileUrl(local.imgUrl)
             setRole(local.user)
             handleGet();
@@ -66,8 +64,7 @@ const AllAddress = () => {
     return ( 
         <div className="dashboardPage">
              <SideNav 
-                userSurname={userSurname}
-                othername={othername}
+                userSurname={userFullname}
                 email={email}
                 profileUrl={profileUrl}
                 role={role}
@@ -76,7 +73,7 @@ const AllAddress = () => {
                  <header>
                     <div className="info-address">
                         <div className="infodetails">
-                            <span className="info-span-1">KYCT ({role})</span>
+                            <span className="info-span-1">KYCT ({role}) {JSON.parse(localStorage.getItem('RavsAuthUser'))['center']}</span>
                             <span className="info-span-2">{day}, {date} {month} {year}</span>
                         </div>
                         <form>
@@ -87,33 +84,32 @@ const AllAddress = () => {
                                 onChange={(e) => setSearchFilter(e.target.value)}
                             >
                                 <option value="">All</option>
-                                <option value="fromDb.registeredData.surname">Surname</option>
-                                <option value="fromDb.registeredData.fullName">Other name</option>
-                                <option value="fromDb.registeredData.dateOfBirth">Date of Birth</option>
-                                <option value="fromDb.registeredData.sex">Sex</option>
-                                <option value="fromDb.registeredData.stateOfOrigin">State of Origin</option>
-                                <option value="fromDb.registeredData.localGovernmentArea">Local Government Area</option>
-                                <option value="fromDb.registeredData.homeTown">Home Town</option>
-                                <option value="fromDb.registeredData.occupation">Occupation</option>
-                                <option value="fromDb.registeredData.phoneNumber">Phone Number</option>
-                                <option value="fromDb.registeredData.alternativePhoneNumber">Alternate Phone Number</option>
-                                <option value="fromDb.registeredData.emailAddress">E-Mail Address</option>
-                                <option value="fromDb.registeredData.buildingType">Building Type</option>
-                                <option value="fromDb.registeredData.propertyType">House/Plot/Flat</option>
-                                <option value="fromDb.registeredData.street">Street</option>
-                                <option value="fromDb.registeredData.state">State</option>
-                                <option value="fromDb.registeredData.city">City</option>
-                                <option value="fromDb.registeredData.zipCode">Zip Code</option>
-                                <option value="fromDb.registeredData.longitude">Logitude</option>
-                                <option value="fromDb.registeredData.latitude">Latitude</option>
-                                <option value="fromDb.registeredData.lengthOfResidency">Duration of Stay</option>
-                                <option value="fromDb.registeredData.firstWitnessFullName">First Witness Full Name</option>
-                                <option value="fromDb.registeredData.firstWitnessRelationshipType">First Witness Relationship</option>
-                                <option value="fromDb.registeredData.firstWitnessPhoneNumber">First Witness Phone Number</option>
-                                <option value="fromDb.registeredData.secondWitnessFullName">Second Witness Full Name</option>
-                                <option value="fromDb.registeredData.secondWitnessRelationshipType">Second Witness Relationship</option>
-                                <option value="fromDb.registeredData.secondWitnessPhoneNumber">Second Witness Phone Number</option>
-                                <option value="fromDb.verified">Verified</option>
+                                <option value="surname">Surname</option>
+                                <option value="fullName">Other name</option>
+                                <option value="dateOfBirth">Date of Birth</option>
+                                <option value="sex">Sex</option>
+                                <option value="stateOfOrigin">State of Origin</option>
+                                <option value="localGovernmentArea">Local Government Area</option>
+                                <option value="homeTown">Home Town</option>
+                                <option value="occupation">Occupation</option>
+                                <option value="phoneNumber">Phone Number</option>
+                                <option value="alternativePhoneNumber">Alternate Phone Number</option>
+                                <option value="emailAddress">E-Mail Address</option>
+                                <option value="buildingType">Building Type</option>
+                                <option value="propertyType">House/Plot/Flat</option>
+                                <option value="street">Street</option>
+                                <option value="state">State</option>
+                                <option value="city">City</option>
+                                <option value="zipCode">Zip Code</option>
+                                <option value="longitude">Logitude</option>
+                                <option value="latitude">Latitude</option>
+                                <option value="lengthOfResidency">Duration of Stay</option>
+                                <option value="firstWitnessFullName">First Witness Full Name</option>
+                                <option value="firstWitnessRelationshipType">First Witness Relationship</option>
+                                <option value="firstWitnessPhoneNumber">First Witness Phone Number</option>
+                                <option value="secondWitnessFullName">Second Witness Full Name</option>
+                                <option value="secondWitnessRelationshipType">Second Witness Relationship</option>
+                                <option value="secondWitnessPhoneNumber">Second Witness Phone Number</option>
                             </select>
                             <div className="group">
                                 <svg className="icon-search" aria-hidden="true" viewBox="0 0 24 24">
@@ -179,14 +175,16 @@ const AllAddress = () => {
                                 <th>Proof of Residence</th>
                                 <th>Proof of Residence</th>
                                 <th>Verified</th>
+                                <th>Uploade By</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
+
                         {tables.filter((table) => {
                             return search.toLowerCase() === ''
                             ? table
-                            : table.fromDb.registeredData.surname.toLowerCase().includes(search);
+                            : table.fromDb["registeredData"][searchFilter].toLowerCase().includes(search);
                         }).map(table => (
                             <tbody key={table._id}>
                                 <tr>
@@ -220,7 +218,19 @@ const AllAddress = () => {
                                     <td>{table.fromDb.registeredData.proveOfResidency}</td>
                                     <td>{table.fromDb.registeredData.photoImage}</td>
                                     <td>{table.fromDb.verified ? verified : notVerified}</td>
-                                    <td>Go</td>
+                                    <td>{table.fromDb.uploadedBy}</td>
+                                    { 
+                                        role === 'Admin' 
+                                        ? 
+                                        <td> 
+                                            <Link to={'/action/' + table._id} target="_blank"><button className='open'>Open</button></Link> 
+                                        </td>
+                                        : 
+                                        <td>
+                                            <button>Edit</button> 
+                                        </td>
+                                    }
+                                    
                                 </tr>
                             </tbody>
                         ))}

@@ -13,8 +13,7 @@ const Settings = () => {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const navigate = useNavigate()
     const { user } = UserAuth()
-    const [userSurname, setUserSurname] = useState("")
-    const [othername, setOthername] = useState("")
+    const [userFullname, setUserFullname] = useState("")
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
     const [role, setRole] = useState("")
@@ -29,8 +28,7 @@ const Settings = () => {
         if (user) {
             const local = JSON.parse(localStorage.getItem('RavsAuthUser'));
             setEmail(local.email)
-            setUserSurname(local.surname)
-            setOthername(local.othername)
+            setUserFullname(local.fullname)
             setProfileUrl(local.imgUrl)
             setRole(local.user)
         } else {
@@ -40,8 +38,7 @@ const Settings = () => {
     return ( 
         <div className="settingsPage">
             <SideNav
-                  userSurname={userSurname}
-                  othername={othername}
+                  userSurname={userFullname}
                   email={email}
                   profileUrl={profileUrl}
                   role={role} 

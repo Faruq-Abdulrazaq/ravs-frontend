@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../Context/AuthContext";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../Firebase";
 
 
@@ -16,7 +16,7 @@ const ProfileSetting = () => {
     useEffect(() => {
         if (user) {
             const local = JSON.parse(localStorage.getItem('RavsAuthUser'));
-            setFullname(local.surname + " " + local.othername)
+            setFullname(local.fullname)
             setAddress(local.address)
             setPhonenumber(local.phonenumber)
         } else {
@@ -36,6 +36,11 @@ const ProfileSetting = () => {
               address : address,
               phonenumber: phonenumber
             });
+            localStorage.removeItem('RavsAuthUser');
+            const docRef = doc(db, "UsersRavs", `${user.uid}`);
+            const docSnap = await getDoc(docRef);
+            localStorage.setItem('RavsAuthUser', JSON.stringify(docSnap.data()));
+            window.location.reload()
         }
         setIsLoading(false)
     }

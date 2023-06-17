@@ -14,8 +14,7 @@ import { UserAuth } from "./Context/AuthContext";
 const AddAddress = () => {
     const navigate = useNavigate()
     const { user } = UserAuth()
-    const [userSurname, setUserSurname] = useState("")
-    const [othername, setOthername] = useState("")
+    const [userFullname, setUserFullname] = useState("")
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
     const [surname, setSurname] = useState("")
@@ -32,7 +31,7 @@ const AddAddress = () => {
     const [buildingType, setBuildingType] = useState("")
     const [propertyType, setPropertyType] = useState("")
     const [street, setStreet] = useState("")
-    const [state, setState] = useState("Abia")
+    const [state, setState] = useState("State of residence")
     const [city, setCity] = useState("")
     const [zipCode, setZipCode] = useState("")
     const [longitude, setLongitude] = useState("")
@@ -55,8 +54,7 @@ const AddAddress = () => {
         if (user) {
             const local = JSON.parse(localStorage.getItem('RavsAuthUser'));
             setEmail(local.email)
-            setUserSurname(local.surname)
-            setOthername(local.othername)
+            setUserFullname(local.fullname)
             setProfileUrl(local.imgUrl)
             setRole(local.user)
         } else {
@@ -108,8 +106,7 @@ const AddAddress = () => {
     return ( 
         <div className="AddAddressPage">
              <SideNav 
-                userSurname={userSurname}
-                othername={othername}
+                userSurname={userFullname}
                 email={email}
                 profileUrl={profileUrl}
                 role={role}

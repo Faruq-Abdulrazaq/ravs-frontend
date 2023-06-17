@@ -15,7 +15,7 @@ const ConfirmationPage = (props) => {
 
     const navigate = useNavigate();
     const [ verificationLink, setVerificationLink ] = useState('')
-    const [ proveOfResidencyLink, setProofOfResidencyLink ] = useState('')
+    const [ proveOfResidencyLink, setProveOfResidencyLink ] = useState('')
     const [ photoImageLink, setPhotoImageLink ] = useState('')
     const [ errorMessage, setErrorMessage ] = useState('')
     const [ isLoading, setIsLoading ] = useState(false)
@@ -51,6 +51,7 @@ const ConfirmationPage = (props) => {
         verification :  verificationLink,
         proveOfResidency:  proveOfResidencyLink,
         photoImage:  photoImageLink,
+        registrationCenter: JSON.parse(localStorage.getItem('RavsAuthUser'))['center'],
     }
 
 
@@ -82,74 +83,76 @@ const ConfirmationPage = (props) => {
         photoImage:  photoImageLink,
     }
 
-
-    
-    const uploadVerification =  () => {
-        if (props.verification === null) return;
-        const imageRef = ref(storage, `Proves/${props.verification.name + v4()}`);
-        uploadBytes(imageRef, props.verification).then((snapshot) => {
+    const  verificationimageRef = () => {
+        const verificationimageRef = ref(storage, `Proves/${props.verification.name + v4()}`);
+        uploadBytes(verificationimageRef, props.verification).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
                 setVerificationLink(url)
+                proveOfResidencyimageRef()
                 console.log(url)
             });
-        });   
+        }); 
     }
 
-    const uploadProveOfResidency =  () => {
-        if (props.proveOfResidency === null) return;
-        const imageRef = ref(storage, `Proves/${props.proveOfResidency.name + v4()}`);
-        uploadBytes(imageRef, props.proveOfResidency).then((snapshot) => {
+    const  proveOfResidencyimageRef = () => {
+        const proveOfResidencyimageRef = ref(storage, `Proves/${props.proveOfResidency.name + v4()}`);
+        uploadBytes(proveOfResidencyimageRef, props.proveOfResidency).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
-                setProofOfResidencyLink(url)
+                setProveOfResidencyLink(url)
+                photoImageimageRef()
                 console.log(url)
             });
-        });   
-    }
+        }); 
+    } 
 
-    const uploadPhotoImage =  () => {
-        if (props.photoImage === null) return;
-        const imageRef = ref(storage, `Proves/${props.photoImage.name + v4()}`);
-        uploadBytes(imageRef, props.photoImage).then((snapshot) => {
+
+    const  photoImageimageRef = () => {
+        const photoImageimageRef = ref(storage, `Proves/${props.photoImage.name + v4()}`);
+        uploadBytes(photoImageimageRef, props.photoImage).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
                 setPhotoImageLink(url)
+                handleUpload()
                 console.log(url)
-            });
-        });   
+            });  
+        })
     }
     
-    
     const handleUpload = async () => {
-        setIsLoading(true)
         const count = []
-        for ( let g in compulsoryData) {
-            if (compulsoryData[g] === "") {
-                count.push(compulsoryData[g])                
+            for ( let g in compulsoryData) {
+                if (compulsoryData[g] === "") {
+                    count.push(compulsoryData[g])                
+                }
             }
-        }
-        if (count.length <= 3) {
-            uploadVerification()
-            uploadProveOfResidency()
-            uploadPhotoImage()
-            if (count.length <= 3) {
+            if (count.length <= 6)  {
                 const url = "https://fine-cyan-gharial-sari.cyclic.app/upload";
                 try {
                     const res = await axios.post(url, {
                         headers: {},
                         registeredData: registeredData,
-                        date: new Date(),
                         verified: false,
+                        uploadedBy: JSON.parse(localStorage.getItem('RavsAuthUser'))['fullname'],
+                        queriedBy: "",
+                        approvedBy: "",
+                        queryMessage: ""
                     
                     });
                     navigate('/Dashboard')
                 } catch (err) {
                     console.log(err);
                 }
-                }
-        } else {
-             setErrorMessage("Fill out all the compulsory form fields (*) ")
-             setPopupStatus(true)
-             setIsLoading(false)
-        }
+    
+            } else {
+                    setErrorMessage("Fill out all the compulsory form fields (*) ")
+                    setPopupStatus(true)
+                    setIsLoading(false)
+            }
+    }
+
+    const handleSubmit = async () => {
+        setIsLoading(true)
+        verificationimageRef()
+        
     }
     return ( 
         <div className="form-1">
@@ -277,7 +280,7 @@ const ConfirmationPage = (props) => {
                     <span className="loader"></span>
                 </button>
                 :
-                <button className="saveBtn" type="button" onClick={handleUpload}>
+                <button className="saveBtn" type="button" onClick={handleSubmit}>
                     <p>Save</p>
                     <svg strokeWidth="4" stroke="currentColor" viewBox="0 0 24 24" fill="none" className="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinejoin="round" strokeLinecap="round"></path>

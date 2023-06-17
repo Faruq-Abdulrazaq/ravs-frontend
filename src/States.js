@@ -3,14 +3,13 @@ import GetDate from "./Components/Getdate";
 import { UserAuth } from "./Context/AuthContext";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { collection, where, getDocs, query} from "firebase/firestore";  
+import { collection, getDocs, query} from "firebase/firestore";  
 import { db } from "./Firebase";
 
 const States = () => {
     const navigate = useNavigate()
     const { user } = UserAuth()
-    const [userSurname, setUserSurname] = useState("")
-    const [othername, setOthername] = useState("")
+    const [userFullname, setUserFullname] = useState("")
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
     const [role, setRole] = useState("")
@@ -60,18 +59,18 @@ const States = () => {
 
 
     useEffect(() => {
+        
         if (user) {
             const local = JSON.parse(localStorage.getItem('RavsAuthUser'));
             setEmail(local.email)
-            setUserSurname(local.surname)
-            setOthername(local.othername)
+            setUserFullname(local.fullname)
             setProfileUrl(local.imgUrl)
             setRole(local.user)
             getStates()
         } else {
             navigate('/')
         }
-    }, [0])
+    }, [])
 
     const getStates = async () => {
         const QuerySnapshot = query(collection(db, "RAVS"));
@@ -83,7 +82,6 @@ const States = () => {
                         ...prevProps,
                         [st]: [st]
                       }));
-                    // states[st].push(st)
                 }
             }
         });
@@ -94,8 +92,7 @@ const States = () => {
     return ( 
         <div className="statePage">
             <SideNav 
-                userSurname={userSurname}
-                othername={othername}
+                userSurname={userFullname}
                 email={email}
                 profileUrl={profileUrl}
                 role={role} 

@@ -14,6 +14,15 @@
   align-items: center;
 }
 
+.editAddressPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .dashboardPage, .helpPage, .statePage, .ManageSupervisor {
   background: #e3ede3;
   width: 100%;
@@ -242,7 +251,7 @@
   height: 100%;
 }
 
-.AddAddressPage header {
+.AddAddressPage header, .editAddressPage header {
   width: 100%;
   height: 15%;
   display: flex;
@@ -668,6 +677,11 @@
   height: 10%;
   margin: 5px;
   text-align: center;
+  border-right: 5px solid #13B955;
+  border-bottom: 5px solid #13B955;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
 } 
 
 .stateGroup label {
@@ -766,7 +780,7 @@
   align-items: center;
 }
 
-.nextBtn p, .saveBtn p {
+.nextBtn p, .saveBtn p .actBtn p {
   margin: 0;
   position: relative;
   font-size: 20px;
@@ -1129,5 +1143,277 @@ td {
 .displayContent {
   width: 90%;
   height: 95%;
-  background: blue;
+  background-color: #b4dfb9;
+  background: linear-gradient(45deg, #49a84c 0%, #49a84c 5%,transparent 5%, transparent 10%, #49a84c 10%, #49a84c 15%,transparent 15%,transparent 20%, #49a84c 20%, #49a84c 25%,transparent 25%,transparent 30%, #49a84c 30%, #49a84c 35%,transparent 35%,transparent 40%, #49a84c 40%, #49a84c 45%,transparent 45%,transparent 50%, #49a84c 50%, #49a84c 55%,transparent 55%,transparent 60%, #49a84c 60%, #49a84c 65%,transparent 65%,transparent 70%, #49a84c 70%, #49a84c 75%,transparent 70%,transparent 80%, #49a84c 80%, #49a84c 85%,transparent 85%,transparent 90%, #49a84c 90%, #49a84c 95%,transparent 95%);
+  background-size: 1em 1em;
+  opacity: 0.9;
+  border: 3px solid #49a84c;
 }
+
+.displayContent-header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.displayContent-header img {
+  width: 110px;
+  height: 90px;
+}
+
+.displayContent-content{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-header {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.content-header h2 {
+  font-weight: lighter;
+}
+
+.content-header h4 {
+  font-family: 'Courier New', Courier, monospace;
+  color: red;
+}
+
+.content-body {
+  width: 100%;
+  height: 35%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.B-content {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.body-Qrcode img {
+  height: 120px;
+  width: 60%;
+  margin: 5% 20%;
+}
+
+.content-declaration {
+  width: 100%;
+  height: 75%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-declaration p {
+  margin-top: 10px;
+  font-size: large;
+}
+
+.content-declaration p span {
+  font-weight: bold;
+}
+
+.answer-box {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  flex-direction: column;
+}
+
+.answer-box span {
+  text-decoration: underline;
+}
+
+.declaration-details {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  height: 95%;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+
+.details-1 {
+  display: flex;
+  text-align: left;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
+}
+
+.details-2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+}
+
+.accreditation {
+  height: 25%;
+  width: 95%;
+  display: flex;
+  justify-content: baseline;
+  flex-direction: column;
+  margin: 0 5%;
+}
+
+.b-2 {
+  font-weight: bolder;
+}
+
+.accreditation h2 {
+  text-align: center;
+}
+
+.signDate {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.sign {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sign h4 {
+  margin: 0px 10px;
+}
+
+.name {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.editAddress {
+  height: 90%;
+  width: 100%;
+}
+
+.editAddress header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.editAddress header .info {
+  display: flex;
+  flex-direction: column;
+}  
+
+.editAddress header .info .info-span-1 {
+  font-size: 20px;
+  font-weight: bold
+}
+
+.form-2 {
+  width: 100%;
+  height: 90%;
+}
+
+.form-2 .ActionStart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ActionStartGroup {
+  width: 15%;
+  height: 10%;
+  margin: 10px;
+} 
+
+.ActionStartGroup label {
+  font-weight: lighter;
+}
+
+.actionCenter {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between
+}
+
+.declidedQuery {
+  display: flex;
+  width: 10%;
+  height: 100%;
+}
+
+.declidedQuery button {
+  height: 80%;
+  margin: 2% 5%;
+  padding: 5px;
+  background: red;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.open {
+  height: 80%;
+  margin: 2% 5%;
+  padding: 5px;
+  background: #13B955;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.actBtn {
+  padding: 5px;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  --primary-color: #111;
+  --hovered-color: #13B955;
+  display: flex;
+  font-weight: 600;
+  font-size: 20px;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.approve {
+  margin-top: 2% 5%;
+  padding: 5px;
+  background: #13B955;
+  color: #fff;
+  border-radius: 5px;
+  height: 80%;
+}
+
+.queried {
+  color: red;
+}
+

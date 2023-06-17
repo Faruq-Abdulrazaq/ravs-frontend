@@ -25,10 +25,8 @@ const SideNav = (props) => {
                     ?
                     <Link to="/Manage" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/manage-files-svgrepo-com.png'} alt="" /> Manage supervisors</li></Link>
                     :
-                    ""
-                 }
-               
-                <Link to="/Add" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/plus-svgrepo-com.png'} alt="" /> Add new</li></Link>
+                    <Link to="/Add" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/plus-svgrepo-com.png'} alt="" /> Add new</li></Link>
+                 }                
                 <Link to="/Settings" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/gear.png'} alt="" /> Settings</li></Link>
                 <Link to="/Help" className="link-bk"><li className="active-sidenav"><img src={process.env.PUBLIC_URL + '/icons/information.png'} alt="" /> Help</li></Link>
             </ul>
@@ -38,7 +36,7 @@ const SideNav = (props) => {
                 <img src={props.profileUrl} alt="" />
             </div>
             <div className="username" title="Profile">
-                <span className="username-span-1">{props.othername} {props.userSurname}</span>
+                <span className="username-span-1">{props.userSurname}</span>
                 <span className="username-span-2">{props.email}</span>
             </div>
             <div className="logout" title="Logout" onClick={handleLogout}>

@@ -1,4 +1,23 @@
 const WitnessInformation = (props) => {
+    const handleWitness1 = (e) => {
+        if (props.firstWitnessPhoneNumber.length != 11) {
+            props.setFirstWitnessPhoneNumber(e.target.value)
+        } else {
+            var str = props.firstWitnessPhoneNumber;
+            str = str.substring(0, str.length - 1);
+            props.setFirstWitnessPhoneNumber(str)
+        }
+    }
+    
+    const handleWitness2 = (e) => {
+        if (props.secondWitnessPhoneNumber.length != 11) {
+            props.setSecondWitnessPhoneNumber(e.target.value)
+        } else {
+            var str = props.secondWitnessPhoneNumber;
+            str = str.substring(0, str.length - 1);
+            props.setSecondWitnessPhoneNumber(str)
+        }
+    }
     return ( 
         <div className="form-1">
             <p>Witness Infomation <br />(4-5)</p>
@@ -71,7 +90,7 @@ const WitnessInformation = (props) => {
                         
                         placeholder="First witness phone number *" 
                         value={props.firstWitnessPhoneNumber}
-                        onChange={(e) => props.setFirstWitnessPhoneNumber(e.target.value)}
+                        onChange={handleWitness1}
                     />
                 </div>
                 <div className="inputGroup">
@@ -81,7 +100,7 @@ const WitnessInformation = (props) => {
                         required
                         placeholder="Second witness phone number" 
                         value={props.secondWitnessPhoneNumber}
-                        onChange={(e) => props.setSecondWitnessPhoneNumber(e.target.value)}
+                        onChange={handleWitness2}
                     />
                 </div>     
             </div>

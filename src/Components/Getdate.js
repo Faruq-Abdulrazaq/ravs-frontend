@@ -8,7 +8,7 @@ const GetDate = ( props ) => {
     let year = d.getFullYear();
     return ( 
         <div className="info">
-            <span className="info-span-1">KYCT ({props.role})</span> 
+            <span className="info-span-1">KYCT ({props.role}) {JSON.parse(localStorage.getItem('RavsAuthUser'))['center']}</span> 
             <span className="info-span-2">{day}, {date} {month} {year}</span>
             <h3>{ props.title ? props.title : ""}</h3>
         </div>

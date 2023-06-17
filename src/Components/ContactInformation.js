@@ -37,7 +37,7 @@ const ContactInfomation = (props) => {
         "Monitoring and Evaluation (M&E)",
         "NGO / Nonprofit",
         "Oil and Gas",
-        "Other",
+        "Others",
         "Procurement & Supply Chain",
         "Programming / Web development",
         "Project / Product Management",
@@ -70,6 +70,8 @@ const ContactInfomation = (props) => {
             props.setAlternativePhoneNumber(str)
         }
     }
+
+    console.log(props.occupation)
     
 
     return ( 
@@ -88,6 +90,20 @@ const ContactInfomation = (props) => {
                         ))}
                     </select>
                 </div>
+                { props.occupation === "Others"
+                 ? 
+                    <div className="inputGroup">
+                        <input 
+                            type="number" 
+                            placeholder="Others "
+
+                            required
+                        />
+                    </div>
+                 :
+                    ""
+                }
+                
                 <div className="inputGroup">
                     <input 
                         type="number" 

@@ -2,29 +2,29 @@ import SideNav from "./Components/SideNav";
 import GetDate from "./Components/Getdate";
 import { UserAuth } from "./Context/AuthContext";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import { collection, where, getDocs, query} from "firebase/firestore";  
 import { db } from "./Firebase";
 
 const Dashboard = () => {
     const navigate = useNavigate()
     const { user } = UserAuth()
-    const [userSurname, setUserSurname] = useState("")
-    const [othername, setOthername] = useState("")
+    const [userFullname, setUserFullname] = useState("")
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
     const [role, setRole] = useState("")
     const [dbVerify, setDbVerify] = useState(null)
     const [dbNotVerify, setNotDbVerify] = useState(null)
     const [totalRegistered, setTotalRegistered] = useState(null)
+    const [totalQueried, setTotalQueried] = useState(null)
+    const uploadedBy = JSON.parse(localStorage.getItem('RavsAuthUser'))['fullname']
     
 
     useEffect(() => {
         if (user) {
             const local = JSON.parse(localStorage.getItem('RavsAuthUser'));
+            setUserFullname(local.fullname)
             setEmail(local.email)
-            setUserSurname(local.surname)
-            setOthername(local.othername)
             setProfileUrl(local.imgUrl)
             setRole(local.user)
             getData()
@@ -32,10 +32,11 @@ const Dashboard = () => {
             navigate('/')
         }
     }, [0])
-
+    
     const getData = async () => {
         const unVerified = []
         const verified = []
+        const queried = []
         const totalRegistered = []
 
         const unVerifiedQuerySnapshot = query(collection(db, "RAVS"), where("verified", "==", false));
@@ -52,6 +53,16 @@ const Dashboard = () => {
         });
         setDbVerify(verified.length)
 
+        const totalQueriedQuerySnapshot = query(collection(db, "RAVS"), where("uploadedBy", "==", `${uploadedBy}` ));
+        const totalQueriedSnapshot = await getDocs(totalQueriedQuerySnapshot);
+        totalQueriedSnapshot.forEach((doc) => {
+            if (doc.data().queried) {
+                queried.push(doc.data())
+            }    
+        });
+        setTotalQueried(queried.length)
+
+
         const registeredQuerySnapshot = query(collection(db, "RAVS"));
         const registeredSnapshot = await getDocs(registeredQuerySnapshot);
         registeredSnapshot.forEach((doc) => {
@@ -64,8 +75,7 @@ const Dashboard = () => {
     return ( 
         <div className="dashboardPage">
             <SideNav 
-                userSurname={userSurname}
-                othername={othername}
+                userSurname={userFullname}
                 email={email}
                 profileUrl={profileUrl}
                 role={role}
@@ -107,15 +117,29 @@ const Dashboard = () => {
                             <p>Verified</p>
                         </div>
                     </div>
+                    {  role === "Admin"
+                    ?
                     <div className="total-reg stb-c">
                         <s className="stb-c-icon">
                             <img src={process.env.PUBLIC_URL + '/icons/map-round-667-svgrepo-com.png'} alt="" />
                         </s>
                         <div className="stb-c-digits">
-                            <h1>0</h1>
-                            <p>Map approved</p>
+                            <p>View Maps</p>
                         </div>
                     </div>
+                    :
+                    <div className="total-reg stb-c">
+                        <s className="stb-c-icon">
+                            <img src={process.env.PUBLIC_URL + '/icons/map-round-667-svgrepo-com.png'} alt="" />
+                        </s>
+                        <div className="stb-c-digits">
+                            <h1>{totalQueried}</h1>
+                            <Link to="" className="queried"><p>Queres</p></Link>
+                        </div>
+                    </div>
+                    }
+                    
+
                 </div>
                 <div className="main-nav-area">
                     <span><img src={process.env.PUBLIC_URL + '/icons/map-round-667-svgrepo-com.png'} alt="" />Map</span>
