@@ -12,6 +12,7 @@ import ManageSupervisor from './ManageSupervisor';
 import View from './View';
 import Action from './Action';
 import Edit from './Edit';
+import Supervisor from './Supervisor';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/Otp" element={<OTP />} />
             <Route exact path="/Dashboard" element={<Dashboard />} />
             <Route exact path="/Add" element={<AddAddress />} />
+            <Route exact path="/Supervisor" element={<Supervisor />} />
             <Route exact path="/Settings" element={<Settings />} />
             <Route exact path="/Manage" element={<ManageSupervisor />} />
             <Route exact path="/Action/:id" element={<Action />} />

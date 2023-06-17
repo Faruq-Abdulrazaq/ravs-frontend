@@ -12,7 +12,6 @@ const PersonalInformation = (props) => {
                 <div className="inputGroup">
                     <input 
                         type="text" 
-                        
                         name="text" 
                         placeholder="Surname"
                         value={props.surname}

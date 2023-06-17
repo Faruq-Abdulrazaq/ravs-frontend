@@ -223,11 +223,17 @@ const AllAddress = () => {
                                         role === 'Admin' 
                                         ? 
                                         <td> 
-                                            <Link to={'/action/' + table._id} target="_blank"><button className='open'>Open</button></Link> 
+                                            <Link to={'/action/' + table._id} target="_blank"><button >Open</button></Link> 
                                         </td>
                                         : 
                                         <td>
-                                            <button>Edit</button> 
+                                            <Link to={''} target="_blank"><button className='open'>Edit</button></Link>
+                                            { table.fromDb.verified
+                                             ? 
+                                             <Link to={'/' + table._id} target="_blank"><button className='open'>Print</button></Link>
+                                             :
+                                             ""
+                                            } 
                                         </td>
                                     }
                                     
