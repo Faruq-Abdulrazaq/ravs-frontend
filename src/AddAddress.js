@@ -21,6 +21,7 @@ const AddAddress = () => {
     const [fullName, setFullName] = useState("")
     const [dateOfBirth, setDateOfBirth] = useState("")
     const [sex, setSex] = useState("")
+    const [Nationality, setNationality] = useState("")
     const [stateOfOrigin, setStateOfOrigin] = useState("State of Origin")
     const [localGovernmentArea, setLocalGovernmentArea] = useState("")
     const [homeTown, setHomeTown] = useState("")
@@ -110,6 +111,14 @@ const AddAddress = () => {
                 email={email}
                 profileUrl={profileUrl}
                 role={role}
+                activeDashboard={"active-sidenav"}
+                activeAll={"active-sidenav"}
+                activeStates={"active-sidenav"}
+                activeManage={"active-sidenav"}
+                activeAdd={"active"}
+                activeSupervisor={"active-sidenav"}
+                activeSettings={"active-sidenav"}
+                activeHelp={"active-sidenav"}
             />
             <section className="addAddress">
                 <header>
@@ -130,6 +139,8 @@ const AddAddress = () => {
                                     setdob={setDateOfBirth}
                                     setSex={setSex}
                                     sex={sex}
+                                    Nationality={Nationality}
+                                    setNationality={setNationality}
                                     sor={stateOfOrigin}
                                     setSor={setStateOfOrigin}
                                     lga={localGovernmentArea}
@@ -203,6 +214,8 @@ const AddAddress = () => {
                                     secondWitnessPhoneNumber={secondWitnessPhoneNumber}
                                     firstWitnessRelationshipType={firstWitnessRelationshipType}
                                     secondWitnessRelationshipType={secondWitnessRelationshipType}
+                                    Nationality={Nationality}
+                                    setNationality={setNationality}
                                     photoImage={photoImage} 
                                     verification= {verification}
                                     proveOfResidency={proveOfResidency}

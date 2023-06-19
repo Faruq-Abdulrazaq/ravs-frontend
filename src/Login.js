@@ -41,7 +41,7 @@ const Login = () => {
     return ( 
         <div className="loginPage">
             <section className="main">
-               <img src="https://firebasestorage.googleapis.com/v0/b/ravs-53992.appspot.com/o/Meta%20Image%2FlogoB.png?alt=media&token=fbaa3b05-e170-45ab-ac5b-eb2616eaf476&_gl=1*1qurfcc*_ga*NjExMzY5MDM5LjE2NjkwOTY4NDY.*_ga_CW55HF8NVT*MTY4NTk2MjEyMy4xMTAuMS4xNjg1OTYzODY3LjAuMC4w" alt="" /> 
+               <img src="https://firebasestorage.googleapis.com/v0/b/ravs-53992.appspot.com/o/Meta%20Image%2FKYCT-full-removebg-preview.png?alt=media&token=eb4a289e-e7f6-4aef-8a21-2dcd397c82a6" alt="" /> 
                 <h4>{error}</h4>
             <form className="form_container" onSubmit={handleLogin}>
                 <div className="input_container">

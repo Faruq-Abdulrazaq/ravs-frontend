@@ -96,6 +96,14 @@ const States = () => {
                 email={email}
                 profileUrl={profileUrl}
                 role={role} 
+                activeDashboard={"active-sidenav"}
+                activeAll={"active-sidenav"}
+                activeStates={"active"}
+                activeManage={"active-sidenav"}
+                activeAdd={"active-sidenav"}
+                activeSupervisor={"active-sidenav"}
+                activeSettings={"active-sidenav"}
+                activeHelp={"active-sidenav"}
             />
             <section className="mainnav">
                 <header>

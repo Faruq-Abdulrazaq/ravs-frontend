@@ -38,10 +38,18 @@ const Settings = () => {
     return ( 
         <div className="settingsPage">
             <SideNav
-                  userSurname={userFullname}
-                  email={email}
-                  profileUrl={profileUrl}
-                  role={role} 
+                userSurname={userFullname}
+                email={email}
+                profileUrl={profileUrl}
+                role={role} 
+                activeDashboard={"active-sidenav"}
+                activeAll={"active-sidenav"}
+                activeStates={"active-sidenav"}
+                activeManage={"active-sidenav"}
+                activeAdd={"active-sidenav"}
+                activeSupervisor={"active-sidenav"}
+                activeSettings={"active"}
+                activeHelp={"active-sidenav"}
             />
             <section className="mainnav">
                 <header>

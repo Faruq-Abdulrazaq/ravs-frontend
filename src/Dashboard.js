@@ -79,6 +79,14 @@ const Dashboard = () => {
                 email={email}
                 profileUrl={profileUrl}
                 role={role}
+                activeDashboard={"active"}
+                activeAll={"active-sidenav"}
+                activeStates={"active-sidenav"}
+                activeManage={"active-sidenav"}
+                activeAdd={"active-sidenav"}
+                activeSupervisor={"active-sidenav"}
+                activeSettings={"active-sidenav"}
+                activeHelp={"active-sidenav"}
 
             />
             <section className="mainnav">
@@ -134,7 +142,7 @@ const Dashboard = () => {
                         </s>
                         <div className="stb-c-digits">
                             <h1>{totalQueried}</h1>
-                            <Link to="" className="queried"><p>Queres</p></Link>
+                            <Link to="/Queries" className="queried">Queres</Link>
                         </div>
                     </div>
                     }

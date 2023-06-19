@@ -39,7 +39,7 @@ const NewAddress = (props) => {
                         <option value="Terrace">Terrace</option>
                         <option value="Duplex">Duplex</option>
                         <option value="One story semi detached Duplex">One story semi detached Duplex</option>
-                        <option value="Rooms/Let in">Rooms/Let in</option>
+                        <option value="Room/Let in (Face-me-face-you)">Room/Let in (Face-me-face-you)</option>
                         <option value="Traditional houses">Traditional houses</option>
                     </select>
                 </div>

@@ -26,6 +26,7 @@ const ConfirmationPage = (props) => {
         othernames: props.fullname,
         dateOfBirth: props.dob,
         sex: props.sex,
+        nationality: props.Nationality,
         stateOfOrigin: props.sor,
         localGovernmentArea: props.lga,
         homeTown: props.homeTown,
@@ -174,6 +175,10 @@ const ConfirmationPage = (props) => {
                     <h4>{props.sex}</h4>
                 </div>
                 <div className="confirmationGroup">
+                    <label htmlFor="">Nationality *</label>
+                    <h4>{props.Nationality}</h4>
+                </div>
+                <div className="confirmationGroup">
                     <label htmlFor="">State of Origin *</label>
                     <h4>{props.sor}</h4>
                 </div>
@@ -273,6 +278,7 @@ const ConfirmationPage = (props) => {
                     <label htmlFor="">Profile Image *</label>
                     <h4>{props.photoImage ? props.photoImage.name : ""}</h4>
                 </div>
+                
             </div>
                 { isLoading 
                 ? 

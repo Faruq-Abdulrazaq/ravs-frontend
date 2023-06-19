@@ -13,6 +13,8 @@ import View from './View';
 import Action from './Action';
 import Edit from './Edit';
 import Supervisor from './Supervisor';
+import Queries from './Queries';
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
             <Route exact path="/Add" element={<AddAddress />} />
             <Route exact path="/Supervisor" element={<Supervisor />} />
             <Route exact path="/Settings" element={<Settings />} />
+            <Route exact path="/Queries" element={<Queries />} />
             <Route exact path="/Manage" element={<ManageSupervisor />} />
             <Route exact path="/Action/:id" element={<Action />} />
             <Route exact path="/Edit/:id:" element={<Edit />} />

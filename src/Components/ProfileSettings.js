@@ -55,7 +55,7 @@ const ProfileSetting = () => {
                         <div className="inputGroup">
                             <input 
                                 type="text" 
-                                
+                                disabled
                                 name="text" 
                                 placeholder="Full name"
                                 value={fullname} 
@@ -66,7 +66,6 @@ const ProfileSetting = () => {
                         <div className="inputGroup">
                             <input 
                                 type="number" 
-                                
                                 name="text" 
                                 placeholder="Phone number" 
                                 value={phonenumber} 
@@ -77,7 +76,6 @@ const ProfileSetting = () => {
                         <div className="inputGroup">
                             <input 
                                 type="text"
-                                
                                 name="text" 
                                 placeholder="Address"
                                 value={address} 

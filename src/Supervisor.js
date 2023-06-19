@@ -96,7 +96,15 @@ const Supervisor = () => {
                 userSurname={userFullname}
                 email={email}
                 profileUrl={profileUrl}
-                role={role}   
+                role={role}  
+                activeDashboard={"active-sidenav"}
+                activeAll={"active-sidenav"}
+                activeStates={"active-sidenav"}
+                activeManage={"active-sidenav"}
+                activeAdd={"active-sidenav"}
+                activeSupervisor={"active"}
+                activeSettings={"active-sidenav"}
+                activeHelp={"active-sidenav"} 
             />
             <section className="mainnav">
                 <header>

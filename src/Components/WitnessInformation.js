@@ -1,6 +1,6 @@
 const WitnessInformation = (props) => {
     const handleWitness1 = (e) => {
-        if (props.firstWitnessPhoneNumber.length != 11) {
+        if (props.firstWitnessPhoneNumber.length !== 11) {
             props.setFirstWitnessPhoneNumber(e.target.value)
         } else {
             var str = props.firstWitnessPhoneNumber;
@@ -10,7 +10,7 @@ const WitnessInformation = (props) => {
     }
     
     const handleWitness2 = (e) => {
-        if (props.secondWitnessPhoneNumber.length != 11) {
+        if (props.secondWitnessPhoneNumber.length !== 11) {
             props.setSecondWitnessPhoneNumber(e.target.value)
         } else {
             var str = props.secondWitnessPhoneNumber;
@@ -57,9 +57,10 @@ const WitnessInformation = (props) => {
                         <option value="Sister">Sister</option>
                         <option value="Uncle">Uncle</option>
                         <option value="Neigbour">Neigbour</option>
-                        <option value="Landload/Landlady">Landload/Landlady</option>
+                        <option value="Landlord/Landlady">Landlord/Landlady</option>
                         <option value="Employer">Employer</option>
                         <option value="Friend">Friend</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div>
                 <div className="inputGroup">
@@ -77,9 +78,10 @@ const WitnessInformation = (props) => {
                         <option value="Sister">Sister</option>
                         <option value="Uncle">Uncle</option>
                         <option value="Neigbour">Neigbour</option>
-                        <option value="Landload/Landlady">Landload/Landlady</option>
+                        <option value="Landlord/Landlady">Landlord/Landlady</option>
                         <option value="Employer">Employer</option>
                         <option value="Friend">Friend</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div>
 

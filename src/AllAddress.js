@@ -19,7 +19,7 @@ const AllAddress = () => {
     const navigate = useNavigate()
     const { user } = UserAuth()
     const [search, setSearch] = useState('')
-    const [searchFilter, setSearchFilter] = useState('')
+    const [searchFilter, setSearchFilter] = useState("all")
     const [userFullname, setUserFullname] = useState("")
     const [email, setEmail] = useState("")
     const [profileUrl, setProfileUrl] = useState("")
@@ -27,7 +27,6 @@ const AllAddress = () => {
     const [role, setRole] = useState("")
     const notVerified = "Not verified"
     const verified = "Verified"
-    const componentRef = useRef()
     const tableRef = useRef(null);
     
     useEffect(() => {
@@ -68,6 +67,14 @@ const AllAddress = () => {
                 email={email}
                 profileUrl={profileUrl}
                 role={role}
+                activeDashboard={"active-sidenav"}
+                activeAll={"active"}
+                activeStates={"active-sidenav"}
+                activeManage={"active-sidenav"}
+                activeAdd={"active-sidenav"}
+                activeSupervisor={"active-sidenav"}
+                activeSettings={"active-sidenav"}
+                activeHelp={"active-sidenav"}
             />
             <section className="mainnav">
                  <header>
@@ -83,7 +90,7 @@ const AllAddress = () => {
                                 value={searchFilter}
                                 onChange={(e) => setSearchFilter(e.target.value)}
                             >
-                                <option value="">All</option>
+                                <option value="All">All</option>
                                 <option value="surname">Surname</option>
                                 <option value="fullName">Other name</option>
                                 <option value="dateOfBirth">Date of Birth</option>
@@ -147,8 +154,8 @@ const AllAddress = () => {
                             <tr className="tbl-header">
                                 <th>Surname</th>
                                 <th>Other Names</th>
-                                <th>Date of Birth</th>
                                 <th>Sex</th>
+                                <th>Nationality</th>
                                 <th>State of Origin</th>
                                 <th>Local Government Area</th>
                                 <th>Home Town</th>
@@ -187,11 +194,11 @@ const AllAddress = () => {
                             : table.fromDb["registeredData"][searchFilter].toLowerCase().includes(search);
                         }).map(table => (
                             <tbody key={table._id}>
-                                <tr>
+                                <tr>                                    
                                     <td>{table.fromDb.registeredData.surname}</td>
                                     <td>{table.fromDb.registeredData.othernames}</td>
-                                    <td>12:34:4</td>
                                     <td>{table.fromDb.registeredData.sex}</td>
+                                    <td>{table.fromDb.registeredData.nationality}</td>
                                     <td>{table.fromDb.registeredData.stateOfOrigin}</td>
                                     <td>{table.fromDb.registeredData.localGovernmentArea}</td>
                                     <td>{table.fromDb.registeredData.homeTown}</td>
@@ -223,7 +230,7 @@ const AllAddress = () => {
                                         role === 'Admin' 
                                         ? 
                                         <td> 
-                                            <Link to={'/action/' + table._id} target="_blank"><button >Open</button></Link> 
+                                            <Link to={'/action/' + table._id} target="_blank"><button className='open'>Open</button></Link> 
                                         </td>
                                         : 
                                         <td>

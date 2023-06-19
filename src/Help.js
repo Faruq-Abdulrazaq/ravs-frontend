@@ -31,7 +31,15 @@ const Help = () => {
             userSurname={userFullname}
             email={email}
             profileUrl={profileUrl}
-            role={role}   
+            role={role} 
+            activeDashboard={"active-sidenav"}
+                activeAll={"active-sidenav"}
+                activeStates={"active-sidenav"}
+                activeManage={"active-sidenav"}
+                activeAdd={"active-sidenav"}
+                activeSupervisor={"active-sidenav"}
+                activeSettings={"active-sidenav"}
+                activeHelp={"active"}  
         />
         <section className="mainnav">
             <header>
