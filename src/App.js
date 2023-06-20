@@ -31,7 +31,7 @@ function App() {
             <Route exact path="/Queries" element={<Queries />} />
             <Route exact path="/Manage" element={<ManageSupervisor />} />
             <Route exact path="/Action/:id" element={<Action />} />
-            <Route exact path="/Edit/:id:" element={<Edit />} />
+            <Route exact path="/Edit/:id" element={<Edit />} />
             <Route exact path="/States" element={<States />} />
             <Route exact path="/All" element={<AllAddress />} />
             <Route exact path="/Help" element={<Help />} />
