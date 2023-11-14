@@ -1623,16 +1623,16 @@ td {
 }
 
 .supervisorView {
-  width: 100%;
+  max-width: 100%;
   height: 95%;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  overflow-y: scroll;
+  overflow-x: scroll;
+  align-content: flex-start;
 }
 
 .supervisorBox {
-  width: 20%;
+  width: 23%;
   height: 150px;
   background: #13b955;
   margin: 5px 10px;
@@ -1643,6 +1643,11 @@ td {
   border-radius: 5px;
   padding: 5px;
   color: #fff;
+  cursor: pointer;
+}
+
+.supervisorBox:hover {
+  opacity: 0.5;
 }
 
 .queryShow {
