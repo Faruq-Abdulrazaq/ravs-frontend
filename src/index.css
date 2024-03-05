@@ -537,6 +537,7 @@
   text-decoration: none;
   color: #111;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .sidenav-main ul li:hover {
@@ -1260,8 +1261,8 @@ td {
 }
 
 .displayContent-header img {
-  width: 110px;
-  height: 90px;
+  width: 130px;
+  height: 110px;
 }
 
 .displayContent-content {

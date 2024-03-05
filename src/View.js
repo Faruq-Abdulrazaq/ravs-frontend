@@ -20,6 +20,8 @@ const View = () => {
   const [dateTime, setDateTime] = useState(new Date());
   const [center, setCenter] = useState("");
   const [qrImgLink, setQrImgLink] = useState("");
+  const [formattedDate, setFormattedDate] = useState("");
+
   const months = [
     "January",
     "February",
@@ -71,6 +73,24 @@ const View = () => {
     } catch (err) {
       console.error(err);
     }
+    // Get current date
+    var currentDate = new Date();
+
+    // Extract day, month, and year
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1; // Months are zero-based
+    var year = currentDate.getFullYear();
+
+    // Format the date as dd-mm-yyyy
+    setFormattedDate(
+      (day < 10 ? "0" : "") +
+        day +
+        "-" +
+        (month < 10 ? "0" : "") +
+        month +
+        "-" +
+        year
+    );
   };
 
   useEffect(() => {
@@ -91,13 +111,13 @@ const View = () => {
         <div className="displayContent">
           <header className="displayContent-header">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/ravs-53992.appspot.com/o/Meta%20Image%2FFCT-logo4.png?alt=media&token=21da7be1-19e2-4ebf-9855-82be30496051&_gl=1*xm4nwa*_ga*NjExMzY5MDM5LjE2NjkwOTY4NDY.*_ga_CW55HF8NVT*MTY5NzY0ODQ5Ni4yMDcuMS4xNjk3NjUxNDQ1LjQ1LjAuMA.."
+              src="https://firebasestorage.googleapis.com/v0/b/ravs-53992.appspot.com/o/Meta%20Image%2Flagos-logo-removebg-preview.png?alt=media&token=34667d0b-f086-4716-bfe1-f56540fd6636"
               alt=""
             />
           </header>
           <div className="displayContent-content">
             <div className="content-header">
-              <h2>FEDERAL CAPITAL TERRITORY ADMINISTRATION</h2>
+              <h2>LAGOS STATE GOVERNMENT</h2>
               <h3>KNOW YOUR COMMUNITY TECHNOLOGY</h3>
               <h4>CERTIFICATE OF RESIDENCY</h4>
             </div>
@@ -140,7 +160,7 @@ const View = () => {
                   {dateTime.getDate()} - {months[dateTime.getMonth()]} -{" "}
                   {dateTime.getFullYear()}
                 </span>{" "}
-                and approved in <span>F.C.T Abuja</span>
+                and approved in <span>Ikeja Lagos</span>
               </p>
               <div className="declaration-details">
                 <div className="details-1">
@@ -199,7 +219,7 @@ const View = () => {
           <div className="signDate">
             <div className="sign">
               <h4>
-                Date: <span>12-03-2020</span>{" "}
+                Date: <span>{formattedDate}</span>{" "}
               </h4>
               <h4>
                 <span>___________________________</span> <br /> Signature of
